@@ -7,7 +7,7 @@ module.exports = {
         filename: "bundle.js"
     },
     module: {
-        loaders: [
+        rules: [
             {
                 test: /\.jsx?$/,
                 exclude: [
@@ -22,5 +22,8 @@ module.exports = {
     },
     resolve : {
          extensions: [".js", ".json", ".jsx", ".css"],
+         alias: {
+             Main: path.resolve(__dirname, "app/src/components/Main.jsx"),
+         }
     }
 }

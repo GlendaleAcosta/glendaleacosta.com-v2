@@ -1,8 +1,11 @@
-var React = require('react');
-var ReactDOM = require('react-dom');
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Main from 'Main';
 
+// Note - Figure out how to do this in webpack
+import "!style-loader!css-loader!sass-loader!./stylesheets/main.scss";
 
 ReactDOM.render(
-    <h1>React and webpack 2 is working</h1>, 
+    <Main/>, 
     document.getElementById('app')
 );
