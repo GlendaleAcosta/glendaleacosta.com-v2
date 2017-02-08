@@ -1,0 +1,21 @@
+.navbar {
+    background-color: $NavBg;
+    width: 60px;
+    height: 100vh;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;  
+}
+.nav-content {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: $Test;
+}
+.nav-link {
+    color: #fff;
+}

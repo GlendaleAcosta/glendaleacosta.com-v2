@@ -1,10 +1,11 @@
-var React = require('react');
-
+import React from 'react';
+import Navbar from 'Navbar';
 
 var Main = (props) => {
     return (
-        <div>
-            <h1>Main Component</h1>
+        <div className="fullscreen">
+            <Navbar/>
+            {props.children}
         </div>
     );
 }
