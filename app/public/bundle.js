@@ -11971,7 +11971,26 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Home = function Home(props) {
-    return _react2.default.createElement("div", { className: "page" });
+    return _react2.default.createElement(
+        "div",
+        { className: "page" },
+        _react2.default.createElement(
+            "h1",
+            { className: "lg-txt-1" },
+            "GLENDALE ACOSTA"
+        ),
+        _react2.default.createElement("hr", { className: "divider" }),
+        _react2.default.createElement(
+            "p",
+            { className: "lg-txt-3 mgn-1" },
+            "Another Stranger Aspiring to be a Software Engineer"
+        ),
+        _react2.default.createElement(
+            "a",
+            { className: "btn mgn-2", href: "#" },
+            "View Portfolio"
+        )
+    );
 };
 
 module.exports = Home;
@@ -12216,10 +12235,10 @@ module.exports = Navbar;
 
 exports = module.exports = __webpack_require__(117)();
 // imports
-
+exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato:300|Poppins:600);", ""]);
 
 // module
-exports.push([module.i, "* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0; }\n\nh1, h2, h3, h4, h5, h6, p {\n  margin: 0; }\n\n.fullscreen {\n  width: 100%;\n  height: 100vh;\n  display: flex; }\n\n.navbar {\n  background-color: lightblue;\n  width: 60px;\n  height: 100vh;\n  display: flex;\n  justify-content: space-around;\n  flex-direction: column; }\n\n.nav-content {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column; }\n\n.nav-link {\n  color: #fff; }\n\n.nav-icon {\n  width: 40px;\n  height: 40px;\n  padding: 5px 0 5px 0; }\n\n.nav-logo {\n  width: 50px;\n  height: 50px; }\n\n.nav-social {\n  width: 25px;\n  height: 25px;\n  margin: 5px 0 5px 0; }\n\n.page {\n  background-color: lightcoral;\n  width: 100%;\n  height: 100vh; }\n", ""]);
+exports.push([module.i, ".lg-txt-1 {\n  font-size: 90px; }\n\n.lg-txt-3 {\n  font-size: 35px; }\n\n.lg-txt-4 {\n  font-size: 25px; }\n\n.divider {\n  width: 300px;\n  border: 1px solid #fff;\n  border-radius: 10px; }\n\n* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0; }\n\nh1, h2, h3, h4, h5, h6 {\n  font-family: 'Poppins', sans-serif;\n  margin: 0; }\n\np {\n  font-family: 'Lato', sans-serif;\n  margin: 0; }\n\n.btn {\n  background-color: lightblue;\n  padding: 5px 15px 5px 15px;\n  font-family: 'Poppins', sans-serif;\n  text-decoration: none;\n  color: #fff;\n  border-radius: 15px;\n  border: 2px solid #fff;\n  font-size: 23px; }\n\n.fullscreen {\n  width: 100%;\n  height: 100vh;\n  display: flex; }\n\n.mgn-1 {\n  margin: 20px; }\n\n.mgn-2 {\n  margin: 10px; }\n\n.navbar {\n  background-color: lightblue;\n  width: 60px;\n  height: 100vh;\n  display: flex;\n  justify-content: space-around;\n  flex-direction: column; }\n\n.nav-content {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column; }\n\n.nav-link {\n  color: #fff; }\n\n.nav-icon {\n  width: 40px;\n  height: 40px;\n  padding: 5px 0 5px 0; }\n\n.nav-logo {\n  width: 50px;\n  height: 50px; }\n\n.nav-social {\n  width: 25px;\n  height: 25px;\n  margin: 5px 0 5px 0; }\n\n.page {\n  background-color: lightcoral;\n  width: 100%;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center; }\n", ""]);
 
 // exports
 
