@@ -1,18 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300|Poppins:600');
 
-.lg-txt-1 {
-    font-size: 90px;
-}
 
-.lg-txt-3 {
-    font-size: 35px;
-}
-.lg-txt-4 {
-    font-size: 25px;
-}
+// Large Text sizes
+.lg-txt-1 {font-size: 90px;}
+.lg-txt-3 {font-size: 35px;}
+.lg-txt-4 {font-size: 25px;}
 
+// Miscellaneous
 .divider {
     width: 300px;
     border: 1px solid #fff;
     border-radius: 10px;
 }
+.white {color: #fff;}

@@ -10,7 +10,7 @@ app.use(express.static('app/src'));
 app.use(express.static('app/public'));
 
 // Routes
-app.get('/', function(req,res,next){
+app.get('/*', function(req,res,next){
     res.sendFile(path.join(__dirname, 'app', 'public', 'index.html'));
 });
 

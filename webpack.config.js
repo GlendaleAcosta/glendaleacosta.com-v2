@@ -25,6 +25,9 @@ module.exports = {
          alias: {
              Main: path.resolve(__dirname, "app/src/components/Main.jsx"),
              Home:  path.resolve(__dirname, "app/src/components/pages/Home.jsx"),
+             About: path.resolve(__dirname, "app/src/components/pages/About.jsx"),
+             Portfolio: path.resolve(__dirname, "app/src/components/pages/Portfolio.jsx"),
+             Contact: path.resolve(__dirname, "app/src/components/pages/Contact.jsx"),
              Navbar: path.resolve(__dirname, "app/src/components/layout/Navbar.jsx"),
              home_icon: path.resolve(__dirname, "app/src/images/home_icon.svg")
          }
