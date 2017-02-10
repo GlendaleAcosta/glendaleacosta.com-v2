@@ -1,41 +1,81 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { Link, Indexlink } from 'react-router';
-// import home_icon from "../../images/home_icon.svg";
-// var home_icon = require('../../images/home_icon.svg');
+import { browserHistory } from 'react-router';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {fetchPage} from '../../actions/pageActions';
+import {pageLoaded} from '../../actions/pageActions';
+
 
 class Navbar extends React.Component{
     constructor(props){
         super(props);
         console.log("Loaded navbar component");
     }
-    render(){
+    
+    goHome(e){
+        e.preventDefault();
+        
+        this.props.fetchPage(); 
+        setTimeout(()=>{
+            browserHistory.push('/');
+        },500)
+    }
+    goAbout(e){
+        e.preventDefault();
+        
+        this.props.fetchPage(); 
+        setTimeout(()=>{
+            browserHistory.push('/about');
+        },500)
+    }
+    goPortfolio(e){
+        e.preventDefault();
+        
+        this.props.fetchPage(); 
+        setTimeout(()=>{
+            browserHistory.push('/portfolio');
+        },500)
+    }
+    goContact(e){
+        e.preventDefault();
+        
+        this.props.fetchPage(); 
+        setTimeout(()=>{
+            browserHistory.push('/contact');
+        },500)
+    }
+        
+    render(){        
+        
         return (
             <nav className="navbar">
                 <ul className="nav-content">
                     <li className="nav-link">
-                        <Link  className="nav-link" to="/">
+                        <Link className="nav-link" to="/">
                             <h1 className="nav-logo">G</h1>
                         </Link>
                     </li>                
                 </ul>
                 <ul className="nav-content">
-                    <li className="nav-link">
-                        <Link to="/">
+                    <li onClick={this.goHome.bind(this)} className="nav-link">
+                        <Link>
                             <img className="nav-icon" src="../../images/home_icon.svg"/>
                         </Link>
                     </li>
-                    <li className="nav-link">
+                    <li ref="aboutLink" onClick={this.goAbout.bind(this)} className="nav-link">
                         <Link to="/about">
                             <img className="nav-icon" src="../../images/ninja_icon.svg"/>
                         </Link>
                     </li>
-                    <li className="nav-link">
+                    <li ref="portfolioLink" onClick={this.goPortfolio.bind(this)} className="nav-link">
                         <Link to="/portfolio">
                             <img className="nav-icon" src="../../images/portfolio_icon.svg"/>
                         </Link>
                     </li>
-                    <li className="nav-link">
-                        <Link to="/contact">
+                    <li ref="contactLink" onClick={this.goContact.bind(this)} className="nav-link">
+                        <Link>
                             <img className="nav-icon" src="../../images/mail_icon.svg"/>
                         </Link>
                     </li>
@@ -51,4 +91,14 @@ class Navbar extends React.Component{
     }
 }
 
-module.exports = Navbar;
+function mapStateToProps(state){
+    return {page: state.page};
+}
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({
+        fetchPage: fetchPage        
+    }, dispatch);
+}
+
+export default connect(mapStateToProps , matchDispatchToProps)(Navbar);

@@ -3,23 +3,52 @@ import {default as Video, Play, Mute, Seek, Fullscreen, Time, Overlay} from 'rea
 import {Link} from 'react-router';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
-import {increment} from '../../actions/pageLoadActions';
-
+import {fetchPage} from '../../actions/pageActions';
+import {pageLoaded} from '../../actions/pageActions';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 class Home extends React.Component {
     constructor(props){
         super(props);
         console.log("loaded Home component");
+
     }
 
-    componentWillUnmount(){
-        console.log("Home Component is being unmounted (loading animation should start here)");
+    componentDidMount(){
+        
+        setTimeout(() => {
+            this.props.pageLoaded();
+        }, 1500);
+        
     }
+
     render(){
+        
         return (
-            <div className="page page-shadow"> 
-                <h1 className="lg-txt-1 white">GLENDALE ACOSTA</h1>
-                <hr className="divider"/>
+            <div> 
+                <h1 className="lg-txt-1">GLENDALE ACOSTA</h1>
+            </div>
+        );
+        
+    
+    }
+}
+
+
+// Redux Config
+function mapStateToProps(state){
+    return {page: state.page};
+}
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({
+        fetchPage: fetchPage,
+        pageLoaded: pageLoaded
+    }, dispatch);
+}
+
+export default connect(mapStateToProps , matchDispatchToProps)(Home);
+                /*<hr className="divider"/>
                 <p className="lg-txt-3 mgn-1 white">A normal college student by day, and a vigilante hacker by night</p>
                 <Link className="btn mgn-2" to="/portfolio">View Portfolio</Link>
 
@@ -29,19 +58,4 @@ class Home extends React.Component {
                     // Do stuff 
                 }}>
                 <source src="../../videos/AxiomMeeting.mp4" type="video/mp4" />
-                </Video>
-            </div>
-        );
-    }
-}
-
-// Redux Config
-function mapStateToProps(state){
-    return {pageLoad: state.pageLoad};
-}
-
-function matchDispatchToProps(dispatch){
-    return bindActionCreators({increment: increment}, dispatch);
-}
-
-export default connect(mapStateToProps , matchDispatchToProps)(Home);
+                </Video>*/

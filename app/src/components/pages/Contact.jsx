@@ -1,13 +1,23 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import {pageLoaded} from '../../actions/pageActions';
+import {fetchPage} from '../../actions/pageActions';
 
 class Contact extends React.Component{
 
     constructor(props){
         super(props);
-        console.log('loaded Contact component');
     }
-
-    render(){
+    componentDidMount(){
+        
+        setTimeout(() => {
+            this.props.pageLoaded();
+        }, 1500);
+        
+    }
+    
+    render(){ 
         return (
             <div className="page">
                 <h1 className="lg-txt-1">Contact Me</h1>
@@ -16,4 +26,16 @@ class Contact extends React.Component{
     }
 }
 
-module.exports = Contact;
+// Redux Config
+function mapStateToProps(state){
+    return {page: state.page};
+}
+
+function matchDispatchToProps(dispatch){
+    return bindActionCreators({
+        fetchPage: fetchPage,
+        pageLoaded: pageLoaded
+    }, dispatch);
+}
+
+export default connect(mapStateToProps , matchDispatchToProps)(Contact);

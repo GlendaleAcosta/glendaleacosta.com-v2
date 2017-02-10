@@ -1,6 +1,6 @@
 import {combineReducers} from 'redux';
-import pageLoadReducer from './pageLoadReducer';
+import pageReducer from './pageReducer';
 
 export default combineReducers({
-    pageLoad: pageLoadReducer
+    page: pageReducer
 })

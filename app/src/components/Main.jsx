@@ -1,13 +1,55 @@
 import React from 'react';
+import {bindActionCreators} from 'redux';
+import {connect} from 'react-redux';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import Navbar from 'Navbar';
+import PageLoader from 'PageLoader';
 
-var Main = (props) => {
-    return (
-        <div className="fullscreen">
-            <Navbar/>
-            {props.children}
-        </div>
-    );
+class Main extends React.Component {
+    constructor(props){
+        super(props);
+    }
+
+    showpageLoader(){
+        if(this.props.page.fetching){
+            return(
+                <PageLoader/>
+            )
+        }
+    }
+
+    render(){
+        return (
+            <div className="fullscreen">
+                <Navbar/>
+                <div className="page">
+                    <ReactCSSTransitionGroup
+                        transitionName="example"
+                        transitionEnterTimeout={2000}
+                        transitionLeaveTimeout={2000}>
+                        {this.props.children}
+                    </ReactCSSTransitionGroup>
+                    <ReactCSSTransitionGroup
+                        transitionName="pageLoader"
+                        transitionEnterTimeout={500}
+                        transitionLeaveTimeout={500}>
+                        {this.showpageLoader()}
+                    </ReactCSSTransitionGroup>
+                </div>
+            </div>
+        );
+    }
 }
 
-module.exports = Main;
+
+
+// Redux Config
+function mapStateToProps(state){
+    return {page: state.page};
+}
+
+// function matchDispatchToProps(dispatch){
+//     return bindActionCreators({fetchPage: fetchPage}, dispatch);
+// }
+
+export default connect(mapStateToProps)(Main);

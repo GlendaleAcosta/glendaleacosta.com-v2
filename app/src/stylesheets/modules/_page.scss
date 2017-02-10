@@ -1,5 +1,5 @@
 .page {
-    background-color: rgba(0,0,0,0.55);
+    // background-color: rgba(0,0,0,0.55);
     width: 100%;
     height: 100vh;
     display: flex;
@@ -12,7 +12,15 @@
 .page-shadow {
     box-shadow: inset 0px 0px 250px 3px black;
 }
-
+.page-loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    background-color: lightcoral;
+}
 #bgVideo {
     position: absolute;
     top: 50%;
@@ -24,5 +32,45 @@
     z-index: -100;
     transform: translate(-50%, -50%);
     filter: blur(5px);
+}
+
+
+.pageLoader-enter {
+  transform: translateX(-100%);
+}
+
+.pageLoader-enter.pageLoader-enter-active {
+  transform: translateX(0);
+  transition: transform 500ms ease-in-out;
+}
+
+.pageLoader-leave {
+  transform: translate(0);
+}
+
+.pageLoader-leave.pageLoader-leave-active {
+  transform: translate(100%);
+  transition: transform 500ms ease-in-out;
+}
+
+
+
+
+.example-enter {
+  opacity: 0.01;
+}
+
+.example-enter.example-enter-active {
+  opacity: 1;
+  transition: opacity 2000ms ease-in;
+}
+
+.example-leave {
+  opacity: 1;
+}
+
+.example-leave.example-leave-active {
+  opacity: 0.01;
+  transition: opacity 2000ms ease-in;
 }
 

@@ -15,7 +15,8 @@ module.exports = {
                 ],
                 loader: "babel-loader",
                 options: {
-                    presets: ["react", "es2015"]
+                    presets: ["react", "es2015"],
+                    plugins: [["transform-object-rest-spread", { "useBuiltIns": true }]]
                 }
             }
         ]
@@ -29,6 +30,7 @@ module.exports = {
              Portfolio: path.resolve(__dirname, "app/src/components/pages/Portfolio.jsx"),
              Contact: path.resolve(__dirname, "app/src/components/pages/Contact.jsx"),
              Navbar: path.resolve(__dirname, "app/src/components/layout/Navbar.jsx"),
+             PageLoader: path.resolve(__dirname, "app/src/components/loaders/PageLoader.jsx"),
              home_icon: path.resolve(__dirname, "app/src/images/home_icon.svg")
          }
     }
