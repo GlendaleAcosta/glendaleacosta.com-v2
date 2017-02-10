@@ -12,7 +12,11 @@ class Navbar extends React.Component{
         return (
             <nav className="navbar">
                 <ul className="nav-content">
-                    <li className="nav-link"><h1 className="nav-logo">G</h1></li>                
+                    <li className="nav-link">
+                        <Link  className="nav-link" to="/">
+                            <h1 className="nav-logo">G</h1>
+                        </Link>
+                    </li>                
                 </ul>
                 <ul className="nav-content">
                     <li className="nav-link">
