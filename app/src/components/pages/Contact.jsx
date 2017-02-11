@@ -3,7 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {pageLoaded} from '../../actions/pageActions';
 import {fetchPage} from '../../actions/pageActions';
-import MapContainer from 'Map';
+import MapContainer from 'MapContainer';
 
 class Contact extends React.Component{
 

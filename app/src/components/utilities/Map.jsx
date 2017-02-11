@@ -1,41 +1,21 @@
 import React from 'react';
 
-import Map from './dumbMap';
-import { getVehicles } from './apiUtils';
+import { GoogleMap, Marker, withGoogleMap } from 'react-google-maps';
 
 /*
- A component to hold the Map component. Fetches a list of vehicle locations
- on componentWillMount, and then ever 2 seconds. 
+ A component that displays a google maps view. Takes in 
+ a list of markers as props, and displays them on the map.
  */
-export default class MapContainer extends React.Component {
+const Map = withGoogleMap((props) => {
+	return (
+		<GoogleMap
+			ref={props.onMapLoad}
+			defaultZoom={9}
+			defaultCenter={{ lat: 38.249358, lng: -122.039966 }}
+			onClick={props.onMapClick}
+		/>
+		
+	);
+});
 
-	constructor(props) {
-		super(props);
-		// This is where we'll store vehicle locations and headings once we get them.
-
-	}
-
-	componentWillMount() {
-
-	}
-
-	render() {
-		return (
-			// I noticed the vh is important here.
-			// Setting it to 100% will cause a component of height 0px to be rendered instead
-			<div style={{ height: '100vh' }}>
-				<Map
-					containerElement={
-						<div style={{ height: '100%' }} />
-					}
-					mapElement={
-						<div style={{ height: '100%' }} />
-					}
-					onMapLoad={this.handleMapLoad}
-					onMapClick={this.handleMapClick}
-					onMarkerRightClick={this.handleMarkerRightClick}
-				/>
-			</div>
-		);
-	}
-}
+export default Map;
