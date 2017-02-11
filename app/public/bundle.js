@@ -13218,11 +13218,21 @@ exports.default = (0, _reactRedux.connect)(mapStateToProps)(Main);
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(35);
+
+var _redux = __webpack_require__(22);
+
+var _pageActions = __webpack_require__(76);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13242,15 +13252,24 @@ var About = function (_React$Component) {
     }
 
     _createClass(About, [{
-        key: "render",
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.props.pageLoaded();
+            }, 1500);
+        }
+    }, {
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
-                { className: "page" },
+                'div',
+                { className: 'page' },
                 _react2.default.createElement(
-                    "h1",
-                    { className: "lg-txt-1" },
-                    "About Me"
+                    'h1',
+                    { className: 'lg-txt-1' },
+                    'About Me'
                 )
             );
         }
@@ -13259,7 +13278,21 @@ var About = function (_React$Component) {
     return About;
 }(_react2.default.Component);
 
-module.exports = About;
+// Redux Config
+
+
+function mapStateToProps(state) {
+    return { page: state.page };
+}
+
+function matchDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        fetchPage: _pageActions.fetchPage,
+        pageLoaded: _pageActions.pageLoaded
+    }, dispatch);
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(About);
 
 /***/ }),
 /* 128 */
@@ -13459,11 +13492,21 @@ onCanPlayThrough={() => {
 "use strict";
 
 
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _react = __webpack_require__(4);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _reactRedux = __webpack_require__(35);
+
+var _redux = __webpack_require__(22);
+
+var _pageActions = __webpack_require__(76);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -13483,15 +13526,24 @@ var Portfolio = function (_React$Component) {
     }
 
     _createClass(Portfolio, [{
-        key: "render",
+        key: 'componentDidMount',
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.props.pageLoaded();
+            }, 1500);
+        }
+    }, {
+        key: 'render',
         value: function render() {
             return _react2.default.createElement(
-                "div",
-                { className: "page" },
+                'div',
+                { className: 'page' },
                 _react2.default.createElement(
-                    "h1",
-                    { className: "lg-txt-1" },
-                    "Portfolio"
+                    'h1',
+                    { className: 'lg-txt-1' },
+                    'Portfolio'
                 )
             );
         }
@@ -13500,7 +13552,21 @@ var Portfolio = function (_React$Component) {
     return Portfolio;
 }(_react2.default.Component);
 
-module.exports = Portfolio;
+// Redux Config
+
+
+function mapStateToProps(state) {
+    return { page: state.page };
+}
+
+function matchDispatchToProps(dispatch) {
+    return (0, _redux.bindActionCreators)({
+        fetchPage: _pageActions.fetchPage,
+        pageLoaded: _pageActions.pageLoaded
+    }, dispatch);
+}
+
+exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Portfolio);
 
 /***/ }),
 /* 131 */
@@ -13611,48 +13677,22 @@ var Navbar = function (_React$Component) {
     }
 
     _createClass(Navbar, [{
-        key: 'goHome',
-        value: function goHome(e) {
-            e.preventDefault();
+        key: 'changePage',
+        value: function changePage(link) {
+            event.preventDefault();
+            var location = _reactRouter.browserHistory.getCurrentLocation();
 
-            this.props.fetchPage();
-            setTimeout(function () {
-                _reactRouter.browserHistory.push('/');
-            }, 500);
-        }
-    }, {
-        key: 'goAbout',
-        value: function goAbout(e) {
-            e.preventDefault();
-
-            this.props.fetchPage();
-            setTimeout(function () {
-                _reactRouter.browserHistory.push('/about');
-            }, 500);
-        }
-    }, {
-        key: 'goPortfolio',
-        value: function goPortfolio(e) {
-            e.preventDefault();
-
-            this.props.fetchPage();
-            setTimeout(function () {
-                _reactRouter.browserHistory.push('/portfolio');
-            }, 500);
-        }
-    }, {
-        key: 'goContact',
-        value: function goContact(e) {
-            e.preventDefault();
-
-            this.props.fetchPage();
-            setTimeout(function () {
-                _reactRouter.browserHistory.push('/contact');
-            }, 500);
+            if (location.pathname !== link) {
+                this.props.fetchPage();
+                setTimeout(function () {
+                    _reactRouter.browserHistory.push(link);
+                }, 500);
+            }
         }
     }, {
         key: 'render',
         value: function render() {
+            var _this2 = this;
 
             return _react2.default.createElement(
                 'nav',
@@ -13679,7 +13719,9 @@ var Navbar = function (_React$Component) {
                     { className: 'nav-content' },
                     _react2.default.createElement(
                         'li',
-                        { onClick: this.goHome.bind(this), className: 'nav-link' },
+                        { onClick: function onClick() {
+                                return _this2.changePage('/');
+                            }, className: 'nav-link' },
                         _react2.default.createElement(
                             _reactRouter.Link,
                             null,
@@ -13688,25 +13730,31 @@ var Navbar = function (_React$Component) {
                     ),
                     _react2.default.createElement(
                         'li',
-                        { ref: 'aboutLink', onClick: this.goAbout.bind(this), className: 'nav-link' },
+                        { onClick: function onClick() {
+                                return _this2.changePage('/about');
+                            }, className: 'nav-link' },
                         _react2.default.createElement(
                             _reactRouter.Link,
-                            { to: '/about' },
+                            null,
                             _react2.default.createElement('img', { className: 'nav-icon', src: '../../images/ninja_icon.svg' })
                         )
                     ),
                     _react2.default.createElement(
                         'li',
-                        { ref: 'portfolioLink', onClick: this.goPortfolio.bind(this), className: 'nav-link' },
+                        { onClick: function onClick() {
+                                return _this2.changePage('/portfolio');
+                            }, className: 'nav-link' },
                         _react2.default.createElement(
                             _reactRouter.Link,
-                            { to: '/portfolio' },
+                            null,
                             _react2.default.createElement('img', { className: 'nav-icon', src: '../../images/portfolio_icon.svg' })
                         )
                     ),
                     _react2.default.createElement(
                         'li',
-                        { ref: 'contactLink', onClick: this.goContact.bind(this), className: 'nav-link' },
+                        { onClick: function onClick() {
+                                return _this2.changePage('/contact');
+                            }, className: 'nav-link' },
                         _react2.default.createElement(
                             _reactRouter.Link,
                             null,

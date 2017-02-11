@@ -14,38 +14,18 @@ class Navbar extends React.Component{
         console.log("Loaded navbar component");
     }
     
-    goHome(e){
-        e.preventDefault();
-        
-        this.props.fetchPage(); 
-        setTimeout(()=>{
-            browserHistory.push('/');
-        },500)
+    changePage(link){
+        event.preventDefault();
+        var location = browserHistory.getCurrentLocation();
+
+        if (location.pathname !== link){
+            this.props.fetchPage(); 
+            setTimeout(()=>{
+                browserHistory.push(link);
+            },500)
+        }
     }
-    goAbout(e){
-        e.preventDefault();
-        
-        this.props.fetchPage(); 
-        setTimeout(()=>{
-            browserHistory.push('/about');
-        },500)
-    }
-    goPortfolio(e){
-        e.preventDefault();
-        
-        this.props.fetchPage(); 
-        setTimeout(()=>{
-            browserHistory.push('/portfolio');
-        },500)
-    }
-    goContact(e){
-        e.preventDefault();
-        
-        this.props.fetchPage(); 
-        setTimeout(()=>{
-            browserHistory.push('/contact');
-        },500)
-    }
+
         
     render(){        
         
@@ -59,22 +39,22 @@ class Navbar extends React.Component{
                     </li>                
                 </ul>
                 <ul className="nav-content">
-                    <li onClick={this.goHome.bind(this)} className="nav-link">
+                    <li onClick={()=> this.changePage('/')} className="nav-link">
                         <Link>
                             <img className="nav-icon" src="../../images/home_icon.svg"/>
                         </Link>
                     </li>
-                    <li ref="aboutLink" onClick={this.goAbout.bind(this)} className="nav-link">
-                        <Link to="/about">
+                    <li onClick={()=> this.changePage('/about')}  className="nav-link">
+                        <Link>
                             <img className="nav-icon" src="../../images/ninja_icon.svg"/>
                         </Link>
                     </li>
-                    <li ref="portfolioLink" onClick={this.goPortfolio.bind(this)} className="nav-link">
-                        <Link to="/portfolio">
+                    <li onClick={()=> this.changePage('/portfolio')}  className="nav-link">
+                        <Link>
                             <img className="nav-icon" src="../../images/portfolio_icon.svg"/>
                         </Link>
                     </li>
-                    <li ref="contactLink" onClick={this.goContact.bind(this)} className="nav-link">
+                    <li onClick={()=> this.changePage('/contact')}  className="nav-link">
                         <Link>
                             <img className="nav-icon" src="../../images/mail_icon.svg"/>
                         </Link>
