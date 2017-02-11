@@ -13174,14 +13174,7 @@ var Main = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'page' },
-                    _react2.default.createElement(
-                        _reactAddonsCssTransitionGroup2.default,
-                        {
-                            transitionName: 'example',
-                            transitionEnterTimeout: 2000,
-                            transitionLeaveTimeout: 2000 },
-                        this.props.children
-                    ),
+                    this.props.children,
                     _react2.default.createElement(
                         _reactAddonsCssTransitionGroup2.default,
                         {
@@ -13348,11 +13341,45 @@ var Contact = function (_React$Component) {
         value: function render() {
             return _react2.default.createElement(
                 'div',
-                { className: 'page' },
+                { className: 'container' },
                 _react2.default.createElement(
-                    'h1',
-                    { className: 'lg-txt-1' },
-                    'Contact Me'
+                    'div',
+                    { className: 'col-2 center-content flex-column' },
+                    _react2.default.createElement(
+                        'h1',
+                        { className: 'lg-txt-4' },
+                        'Contact Me'
+                    ),
+                    _react2.default.createElement(
+                        'form',
+                        { className: 'form', onSubmit: this.onSubmit },
+                        _react2.default.createElement(
+                            'div',
+                            null,
+                            _react2.default.createElement('input', { className: 'input', ref: 'email', type: 'text', placeholder: 'Name' }),
+                            _react2.default.createElement('input', { className: 'input', ref: 'name', type: 'text', placeholder: 'Email' })
+                        ),
+                        _react2.default.createElement('input', { className: 'input', ref: 'subject', type: 'text', placeholder: 'Subject' }),
+                        _react2.default.createElement('textarea', { className: 'textarea', ref: 'message', type: 'text', placeholder: 'Message' }),
+                        _react2.default.createElement(
+                            'div',
+                            { className: 'container right' },
+                            _react2.default.createElement(
+                                'button',
+                                { type: 'submit', className: 'form-btn' },
+                                'Send'
+                            )
+                        )
+                    )
+                ),
+                _react2.default.createElement(
+                    'div',
+                    { className: 'col-2 map-bg' },
+                    _react2.default.createElement(
+                        'h1',
+                        { className: 'lg-txt-1' },
+                        'Contact Me'
+                    )
                 )
             );
         }
@@ -13443,14 +13470,30 @@ var Home = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
-
             return _react2.default.createElement(
                 'div',
-                null,
+                { className: 'hero page-shadow' },
                 _react2.default.createElement(
                     'h1',
-                    { className: 'lg-txt-1' },
+                    { className: 'lg-txt-1 white' },
                     'GLENDALE ACOSTA'
+                ),
+                _react2.default.createElement('hr', { className: 'divider' }),
+                _react2.default.createElement(
+                    'p',
+                    { className: 'lg-txt-4 mgn-1 white-ish' },
+                    'A normal college student by day, and a vigilante hacker by night'
+                ),
+                _react2.default.createElement(
+                    _reactRouter.Link,
+                    { className: 'btn mgn-2', to: '/portfolio' },
+                    'View Portfolio'
+                ),
+                _react2.default.createElement(
+                    _reactHtml5video2.default,
+                    { id: 'bgVideo', autoPlay: true, loop: true, muted: true,
+                        poster: 'http://sourceposter.jpg' },
+                    _react2.default.createElement('source', { src: '../../videos/Maxine the Fluffy Corgi.mp4', type: 'video/mp4' })
                 )
             );
         }
@@ -13474,16 +13517,6 @@ function matchDispatchToProps(dispatch) {
 }
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps, matchDispatchToProps)(Home);
-/*<hr className="divider"/>
-<p className="lg-txt-3 mgn-1 white">A normal college student by day, and a vigilante hacker by night</p>
-<Link className="btn mgn-2" to="/portfolio">View Portfolio</Link>
- <Video id="bgVideo" autoPlay loop muted
-poster="http://sourceposter.jpg"
-onCanPlayThrough={() => {
-    // Do stuff 
-}}>
-<source src="../../videos/AxiomMeeting.mp4" type="video/mp4" />
-</Video>*/
 
 /***/ }),
 /* 130 */
@@ -13910,7 +13943,7 @@ exports = module.exports = __webpack_require__(138)();
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato:300|Poppins:500,600);", ""]);
 
 // module
-exports.push([module.i, ".lg-txt-1 {\n  font-size: 90px;\n  font-weight: 600; }\n\n.lg-txt-3 {\n  font-size: 35px; }\n\n.lg-txt-4 {\n  font-size: 25px; }\n\n.divider {\n  width: 300px;\n  border: 1px solid #fff;\n  border-radius: 10px; }\n\n.white {\n  color: #fff; }\n\n* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0; }\n\nh1, h2, h3, h4, h5, h6 {\n  font-family: 'Poppins', sans-serif;\n  margin: 0; }\n\np {\n  font-family: 'Lato', sans-serif;\n  margin: 0; }\n\n.btn {\n  background-color: rgba(0, 0, 0, 0.1);\n  padding: 5px 25px 5px 25px;\n  font-family: 'Poppins', sans-serif;\n  text-decoration: none;\n  color: #fff;\n  border-radius: 30px;\n  border: 2px solid #fff;\n  font-size: 23px; }\n\n.fullscreen {\n  width: 100%;\n  height: 100vh;\n  display: flex; }\n\n.mgn-1 {\n  margin: 20px; }\n\n.mgn-2 {\n  margin: 10px; }\n\n.navbar {\n  background-color: #101010;\n  width: 60px;\n  height: 100vh;\n  display: flex;\n  justify-content: space-around;\n  flex-direction: column; }\n\n.nav-content {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column; }\n\n.nav-link {\n  color: #fff;\n  text-decoration: none; }\n\n.nav-icon {\n  width: 40px;\n  height: 40px;\n  padding: 5px 0 5px 0;\n  background-color: maroon;\n  border-radius: 50%; }\n\n.nav-logo {\n  width: 50px;\n  height: 50px;\n  font-size: 50px;\n  text-align: center;\n  color: #fff;\n  text-decoration: none; }\n\n.nav-social {\n  width: 25px;\n  height: 25px;\n  margin: 5px 0 5px 0; }\n\n.page {\n  width: 100%;\n  height: 100vh;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n  position: relative;\n  overflow: hidden; }\n\n.page-shadow {\n  box-shadow: inset 0px 0px 250px 3px black; }\n\n.page-loader {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100%;\n  width: 100%;\n  background-color: lightcoral; }\n\n#bgVideo {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  min-width: 100%;\n  min-height: 100%;\n  width: auto;\n  height: auto;\n  z-index: -100;\n  transform: translate(-50%, -50%);\n  filter: blur(5px); }\n\n.pageLoader-enter {\n  transform: translateX(-100%); }\n\n.pageLoader-enter.pageLoader-enter-active {\n  transform: translateX(0);\n  transition: transform 500ms ease-in-out; }\n\n.pageLoader-leave {\n  transform: translate(0); }\n\n.pageLoader-leave.pageLoader-leave-active {\n  transform: translate(100%);\n  transition: transform 500ms ease-in-out; }\n\n.example-enter {\n  opacity: 0.01; }\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transition: opacity 2000ms ease-in; }\n\n.example-leave {\n  opacity: 1; }\n\n.example-leave.example-leave-active {\n  opacity: 0.01;\n  transition: opacity 2000ms ease-in; }\n", ""]);
+exports.push([module.i, ".lg-txt-1 {\n  font-size: 90px;\n  font-weight: 600; }\n\n.lg-txt-3 {\n  font-size: 35px; }\n\n.lg-txt-4 {\n  font-size: 30px; }\n\n.divider {\n  width: 300px;\n  border: 1px solid rgba(255, 255, 255, 0.8);\n  border-radius: 10px; }\n\n.white {\n  color: #fff; }\n\n.white-ish {\n  color: rgba(255, 255, 255, 0.8); }\n\n* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0; }\n\nh1, h2, h3, h4, h5, h6 {\n  font-family: 'Poppins', sans-serif;\n  margin: 0; }\n\np {\n  font-family: 'Lato', sans-serif;\n  margin: 0; }\n\n.btn {\n  background-color: rgba(0, 0, 0, 0.1);\n  padding: 5px 25px 5px 25px;\n  font-family: 'Poppins', sans-serif;\n  text-decoration: none;\n  color: #fff;\n  border-radius: 30px;\n  border: 2px solid #fff;\n  font-size: 23px; }\n\n.form-btn {\n  font-size: 16px;\n  padding: 5px 15px;\n  border: 1px solid black;\n  background: transparent;\n  margin: 5px;\n  cursor: pointer; }\n\n.fullscreen {\n  width: 100%;\n  height: 100vh;\n  display: flex; }\n\n.hero {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: rgba(15, 12, 5, 0.61);\n  flex-direction: column; }\n\n.container {\n  display: flex;\n  width: 100%;\n  height: 100%; }\n\n.center-content {\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\n.flex-column {\n  flex-direction: column; }\n\n.right {\n  justify-content: flex-end; }\n\n.mgn-1 {\n  margin: 20px; }\n\n.mgn-2 {\n  margin: 10px; }\n\n.col-2 {\n  width: 50%; }\n\n.navbar {\n  background-color: #101010;\n  width: 60px;\n  height: 100vh;\n  display: flex;\n  justify-content: space-around;\n  flex-direction: column; }\n\n.nav-content {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column; }\n\n.nav-link {\n  color: #fff;\n  text-decoration: none; }\n\n.nav-icon {\n  width: 40px;\n  height: 40px;\n  padding: 5px 0 5px 0;\n  background-color: maroon;\n  border-radius: 50%; }\n\n.nav-logo {\n  width: 50px;\n  height: 50px;\n  font-size: 50px;\n  text-align: center;\n  color: #fff;\n  text-decoration: none; }\n\n.nav-social {\n  width: 25px;\n  height: 25px;\n  margin: 5px 0 5px 0; }\n\n.page {\n  width: 100%;\n  height: 100vh;\n  position: relative;\n  overflow: hidden; }\n\n.page-shadow {\n  box-shadow: inset 0px 0px 250px 3px black; }\n\n.page-loader {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100%;\n  width: 100%;\n  background-color: lightcoral; }\n\n#bgVideo {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  min-width: 100%;\n  min-height: 100%;\n  width: auto;\n  height: auto;\n  z-index: -100;\n  transform: translate(-50%, -50%);\n  filter: blur(5px); }\n\n.pageLoader-enter {\n  transform: translateX(-100%); }\n\n.pageLoader-enter.pageLoader-enter-active {\n  transform: translateX(0);\n  transition: transform 500ms ease-in-out; }\n\n.pageLoader-leave {\n  transform: translate(0); }\n\n.pageLoader-leave.pageLoader-leave-active {\n  transform: translate(100%);\n  transition: transform 500ms ease-in-out; }\n\n.example-enter {\n  opacity: 0.01; }\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transition: opacity 2000ms ease-in; }\n\n.example-leave {\n  opacity: 1; }\n\n.example-leave.example-leave-active {\n  opacity: 0.01;\n  transition: opacity 2000ms ease-in; }\n\n.form {\n  display: flex;\n  flex-direction: column; }\n\n.input {\n  height: 50px;\n  margin: 5px;\n  padding: 0 20px;\n  font-size: 16px;\n  background-color: #37393b;\n  border: 0;\n  color: #fff; }\n\n.textarea {\n  color: #fff;\n  border: 0;\n  margin: 5px;\n  min-height: 150px;\n  font-size: 16px;\n  padding: 20px;\n  background-color: #37393b;\n  resize: none; }\n", ""]);
 
 // exports
 

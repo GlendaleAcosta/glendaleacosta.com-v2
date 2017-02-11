@@ -4,12 +4,13 @@
 // Large Text sizes
 .lg-txt-1 {font-size: 90px; font-weight: 600}
 .lg-txt-3 {font-size: 35px;}
-.lg-txt-4 {font-size: 25px;}
+.lg-txt-4 {font-size: 30px;}
 
 // Miscellaneous
 .divider {
     width: 300px;
-    border: 1px solid #fff;
+    border: 1px solid rgba(255,255,255,0.8);
     border-radius: 10px;
 }
 .white {color: #fff;}
+.white-ish {color: rgba(255,255,255,0.8);}

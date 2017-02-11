@@ -1,0 +1,25 @@
+.form {
+    display: flex;
+    flex-direction: column;
+}
+.input {
+    height: 50px;
+    margin: 5px;
+    padding: 0 20px;
+    font-size: 16px;
+    background-color: #37393b;
+    border: 0; 
+    color: #fff;
+}
+.textarea {
+    color:#fff;
+    border: 0;
+    margin: 5px;
+    min-height: 150px;
+    font-size: 16px;
+    padding: 20px;
+    background-color: #37393b;
+    resize: none;
+}
+
+

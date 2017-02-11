@@ -23,12 +23,7 @@ class Main extends React.Component {
             <div className="fullscreen">
                 <Navbar/>
                 <div className="page">
-                    <ReactCSSTransitionGroup
-                        transitionName="example"
-                        transitionEnterTimeout={2000}
-                        transitionLeaveTimeout={2000}>
-                        {this.props.children}
-                    </ReactCSSTransitionGroup>
+                    {this.props.children}
                     <ReactCSSTransitionGroup
                         transitionName="pageLoader"
                         transitionEnterTimeout={500}

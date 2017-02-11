@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { Link, Indexlink } from 'react-router';
-import { browserHistory } from 'react-router';
+import {Link, Indexlink} from 'react-router';
+import {browserHistory} from 'react-router';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {fetchPage} from '../../actions/pageActions';

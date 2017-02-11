@@ -23,14 +23,20 @@ class Home extends React.Component {
     }
 
     render(){
-        
         return (
-            <div> 
-                <h1 className="lg-txt-1">GLENDALE ACOSTA</h1>
+            <div className="hero page-shadow"> 
+                <h1 className="lg-txt-1 white">GLENDALE ACOSTA</h1>
+
+                <hr className="divider"/>
+                <p className="lg-txt-4 mgn-1 white-ish">A normal college student by day, and a vigilante hacker by night</p>
+                <Link className="btn mgn-2" to="/portfolio">View Portfolio</Link>
+
+                <Video id="bgVideo" autoPlay loop muted
+                    poster="http://sourceposter.jpg">
+                <source src="../../videos/Maxine the Fluffy Corgi.mp4" type="video/mp4" />
+                </Video>
             </div>
         );
-        
-    
     }
 }
 
@@ -48,14 +54,3 @@ function matchDispatchToProps(dispatch){
 }
 
 export default connect(mapStateToProps , matchDispatchToProps)(Home);
-                /*<hr className="divider"/>
-                <p className="lg-txt-3 mgn-1 white">A normal college student by day, and a vigilante hacker by night</p>
-                <Link className="btn mgn-2" to="/portfolio">View Portfolio</Link>
-
-                <Video id="bgVideo" autoPlay loop muted
-                poster="http://sourceposter.jpg"
-                onCanPlayThrough={() => {
-                    // Do stuff 
-                }}>
-                <source src="../../videos/AxiomMeeting.mp4" type="video/mp4" />
-                </Video>*/
