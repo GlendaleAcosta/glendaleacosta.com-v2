@@ -31,6 +31,7 @@ module.exports = {
              Contact: path.resolve(__dirname, "app/src/components/pages/Contact.jsx"),
              Navbar: path.resolve(__dirname, "app/src/components/layout/Navbar.jsx"),
              PageLoader: path.resolve(__dirname, "app/src/components/loaders/PageLoader.jsx"),
+             Map: path.resolve(__dirname, "app/src/components/utilities/Map.jsx"),
              home_icon: path.resolve(__dirname, "app/src/images/home_icon.svg")
          }
     }

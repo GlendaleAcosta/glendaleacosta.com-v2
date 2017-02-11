@@ -3,6 +3,7 @@ import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {pageLoaded} from '../../actions/pageActions';
 import {fetchPage} from '../../actions/pageActions';
+import MapContainer from 'Map';
 
 class Contact extends React.Component{
 
@@ -16,11 +17,15 @@ class Contact extends React.Component{
         }, 1500);
         
     }
+
+          
     
     render(){ 
+
+
         return (
             <div className="container">
-                <div className="col-2 center-content flex-column">
+                <div className="col-6 center-content flex-column">
                     <h1 className="lg-txt-4">Contact Me</h1>
 
                     <form className="form" onSubmit={this.onSubmit}>
@@ -41,13 +46,14 @@ class Contact extends React.Component{
 
                 </div>
                 
-                <div className="col-2 map-bg">
-                    <h1 className="lg-txt-1">Contact Me</h1>
+                <div className="col-6">
+                    <MapContainer/>
                 </div>
             </div>
         )
     }
 }
+
 
 // Redux Config
 function mapStateToProps(state){
