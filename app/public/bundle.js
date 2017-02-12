@@ -19042,11 +19042,11 @@ var Portfolio = function (_React$Component) {
         var originalProjects = [{ name: 'website 1' }, { name: 'website 2' }, { name: 'website 3' }, { name: 'website 4' }, { name: 'website 5' }];
 
         var length = originalProjects.length;
-        var first3Projects = originalProjects.slice(0, 3);
-        var last3Projects = originalProjects.slice(length - 3, length);
+        var first4Projects = originalProjects.slice(0, 4);
+        var last4Projects = originalProjects.slice(length - 4, length);
 
-        var projects = last3Projects.concat(originalProjects);
-        var projects = projects.concat(first3Projects);
+        var projects = last4Projects.concat(originalProjects);
+        var projects = projects.concat(first4Projects);
 
         var pageWidth = document.getElementsByTagName('body')["0"].clientWidth - 60;
         var projectWidth = pageWidth / 4;
@@ -19054,10 +19054,11 @@ var Portfolio = function (_React$Component) {
         var containerWidth = projectWidth * projects.length;
 
         _this.state = {
+            originalProjects: originalProjects,
             projects: projects,
             containerStyle: {
                 width: containerWidth + "px",
-                transform: 'translateX(' + -(projectWidth / 2) + 'px)'
+                transform: 'translateX(' + -(projectWidth * (5 / 2)) + 'px)'
             },
             projectStyle: {
                 width: projectWidth + "px",
@@ -19077,7 +19078,6 @@ var Portfolio = function (_React$Component) {
             e.preventDefault();
             console.log(index);
             var that = this;
-            //     var projects = this.state.projects;
             var projectWidth = this.state.projectStyle.width;
             var length = projectWidth.length;
 
@@ -19086,14 +19086,39 @@ var Portfolio = function (_React$Component) {
             projectWidth = projectWidth.join("");
 
             var position = projectWidth * (index - 2) + projectWidth / 2;
-            console.log(projectWidth);
-            console.log(position - projectWidth);
+
+            var projects = this.state.projects;
+
+            var projects_length = this.state.originalProjects.length;
 
             that.setState({
                 containerStyle: {
                     transform: "translateX(-" + position + "px)"
                 }
             });
+
+            if (index < 4) {
+
+                setTimeout(function () {
+                    that.setState({
+                        containerStyle: {
+                            transform: "translateX(-" + (projectWidth * (projects_length + index - 2) + projectWidth / 2) + "px)",
+                            transition: "0s"
+                        }
+                    });
+                }, 500);
+            }
+            if (index > projects_length + 3) {
+
+                setTimeout(function () {
+                    that.setState({
+                        containerStyle: {
+                            transform: "translateX(-" + (projectWidth * (index - projects_length - 2) + projectWidth / 2) + "px)",
+                            transition: "0s"
+                        }
+                    });
+                }, 500);
+            }
         }
     }, {
         key: 'render',
@@ -20713,7 +20738,7 @@ exports = module.exports = __webpack_require__(331)();
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato:300|Poppins:500,600);", ""]);
 
 // module
-exports.push([module.i, ".lg-txt-1 {\n  font-size: 90px;\n  font-weight: 600; }\n\n.lg-txt-3 {\n  font-size: 35px; }\n\n.lg-txt-4 {\n  font-size: 30px; }\n\n.divider {\n  width: 300px;\n  border: 1px solid rgba(255, 255, 255, 0.8);\n  border-radius: 10px; }\n\n.white {\n  color: #fff; }\n\n.white-ish {\n  color: rgba(255, 255, 255, 0.8); }\n\n* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0; }\n\nh1, h2, h3, h4, h5, h6 {\n  font-family: 'Poppins', sans-serif;\n  margin: 0; }\n\np {\n  font-family: 'Lato', sans-serif;\n  margin: 0; }\n\n.btn {\n  background-color: rgba(0, 0, 0, 0.1);\n  padding: 5px 25px 5px 25px;\n  font-family: 'Poppins', sans-serif;\n  text-decoration: none;\n  color: #fff;\n  border-radius: 30px;\n  border: 2px solid #fff;\n  font-size: 23px; }\n\n.form-btn {\n  font-size: 16px;\n  padding: 5px 15px;\n  border: 1px solid black;\n  background: transparent;\n  margin: 5px;\n  cursor: pointer; }\n\n.fullscreen {\n  width: 100%;\n  height: 100vh;\n  display: flex; }\n\n.hero {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: rgba(15, 12, 5, 0.61);\n  flex-direction: column; }\n\n.container {\n  display: flex;\n  width: 100%;\n  height: 100%; }\n\n.flex {\n  display: flex; }\n\n.center-content {\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\n.flex-column {\n  flex-direction: column; }\n\n.right {\n  justify-content: flex-end; }\n\n.mgn-1 {\n  margin: 20px; }\n\n.mgn-2 {\n  margin: 10px; }\n\n.col-6 {\n  width: 50%; }\n\n.row-7 {\n  height: 58.333333333%; }\n\n.row-8 {\n  height: 66.666666666%; }\n\n.row-4 {\n  height: 33.3333333333%; }\n\n.portfolio-top {\n  display: flex;\n  align-items: center;\n  overflow: hidden;\n  position: relative; }\n\n.portfolio-bottom {\n  background-color: lightblue; }\n\n.navbar {\n  background-color: #101010;\n  width: 60px;\n  height: 100vh;\n  display: flex;\n  justify-content: space-around;\n  flex-direction: column; }\n\n.nav-content {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column; }\n\n.nav-link {\n  color: #fff;\n  text-decoration: none; }\n\n.nav-icon {\n  width: 40px;\n  height: 40px;\n  padding: 5px 0 5px 0;\n  background-color: maroon;\n  border-radius: 50%; }\n\n.nav-logo {\n  width: 50px;\n  height: 50px;\n  font-size: 50px;\n  text-align: center;\n  color: #fff;\n  text-decoration: none; }\n\n.nav-social {\n  width: 25px;\n  height: 25px;\n  margin: 5px 0 5px 0; }\n\n.page {\n  width: 100%;\n  height: 100vh;\n  position: relative;\n  overflow: hidden; }\n\n.page-shadow {\n  box-shadow: inset 0px 0px 250px 3px black; }\n\n.page-loader {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100%;\n  width: 100%;\n  background-color: lightcoral; }\n\n#bgVideo {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  min-width: 100%;\n  min-height: 100%;\n  width: auto;\n  height: auto;\n  z-index: -100;\n  transform: translate(-50%, -50%);\n  filter: blur(5px); }\n\n.pageLoader-enter {\n  transform: translateX(-100%); }\n\n.pageLoader-enter.pageLoader-enter-active {\n  transform: translateX(0);\n  transition: transform 500ms ease-in-out; }\n\n.pageLoader-leave {\n  transform: translate(0); }\n\n.pageLoader-leave.pageLoader-leave-active {\n  transform: translate(100%);\n  transition: transform 500ms ease-in-out; }\n\n.example-enter {\n  opacity: 0.01; }\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transition: opacity 2000ms ease-in; }\n\n.example-leave {\n  opacity: 1; }\n\n.example-leave.example-leave-active {\n  opacity: 0.01;\n  transition: opacity 2000ms ease-in; }\n\n.form {\n  display: flex;\n  flex-direction: column; }\n\n.input {\n  height: 50px;\n  margin: 5px;\n  padding: 0 20px;\n  font-size: 16px;\n  background-color: #37393b;\n  border: 0;\n  color: #fff; }\n\n.textarea {\n  color: #fff;\n  border: 0;\n  margin: 5px;\n  min-height: 150px;\n  font-size: 16px;\n  padding: 20px;\n  background-color: #37393b;\n  resize: none; }\n\n#map {\n  background-color: grey;\n  width: 100%;\n  height: 100%; }\n\n.project {\n  width: 20%;\n  height: 240px;\n  background-color: #666;\n  border-radius: 100%;\n  opacity: 0.3;\n  transition: 0.5s ease-in-out;\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n  .project:nth-child(3) {\n    opacity: 1; }\n\n.project-container {\n  background-color: lightcoral;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  transition: 0.5s ease-in-out; }\n", ""]);
+exports.push([module.i, ".lg-txt-1 {\n  font-size: 90px;\n  font-weight: 600; }\n\n.lg-txt-3 {\n  font-size: 35px; }\n\n.lg-txt-4 {\n  font-size: 30px; }\n\n.divider {\n  width: 300px;\n  border: 1px solid rgba(255, 255, 255, 0.8);\n  border-radius: 10px; }\n\n.white {\n  color: #fff; }\n\n.white-ish {\n  color: rgba(255, 255, 255, 0.8); }\n\n* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0; }\n\nh1, h2, h3, h4, h5, h6 {\n  font-family: 'Poppins', sans-serif;\n  margin: 0; }\n\np {\n  font-family: 'Lato', sans-serif;\n  margin: 0; }\n\n.btn {\n  background-color: rgba(0, 0, 0, 0.1);\n  padding: 5px 25px 5px 25px;\n  font-family: 'Poppins', sans-serif;\n  text-decoration: none;\n  color: #fff;\n  border-radius: 30px;\n  border: 2px solid #fff;\n  font-size: 23px; }\n\n.form-btn {\n  font-size: 16px;\n  padding: 5px 15px;\n  border: 1px solid black;\n  background: transparent;\n  margin: 5px;\n  cursor: pointer; }\n\n.fullscreen {\n  width: 100%;\n  height: 100vh;\n  display: flex; }\n\n.hero {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: rgba(15, 12, 5, 0.61);\n  flex-direction: column; }\n\n.container {\n  display: flex;\n  width: 100%;\n  height: 100%; }\n\n.flex {\n  display: flex; }\n\n.center-content {\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\n.flex-column {\n  flex-direction: column; }\n\n.right {\n  justify-content: flex-end; }\n\n.mgn-1 {\n  margin: 20px; }\n\n.mgn-2 {\n  margin: 10px; }\n\n.col-6 {\n  width: 50%; }\n\n.row-7 {\n  height: 58.333333333%; }\n\n.row-8 {\n  height: 66.666666666%; }\n\n.row-4 {\n  height: 33.3333333333%; }\n\n.portfolio-top {\n  display: flex;\n  align-items: center;\n  overflow: hidden;\n  position: relative; }\n\n.portfolio-bottom {\n  background-color: lightblue; }\n\n.navbar {\n  background-color: #101010;\n  width: 60px;\n  height: 100vh;\n  display: flex;\n  justify-content: space-around;\n  flex-direction: column; }\n\n.nav-content {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column; }\n\n.nav-link {\n  color: #fff;\n  text-decoration: none; }\n\n.nav-icon {\n  width: 40px;\n  height: 40px;\n  padding: 5px 0 5px 0;\n  background-color: maroon;\n  border-radius: 50%; }\n\n.nav-logo {\n  width: 50px;\n  height: 50px;\n  font-size: 50px;\n  text-align: center;\n  color: #fff;\n  text-decoration: none; }\n\n.nav-social {\n  width: 25px;\n  height: 25px;\n  margin: 5px 0 5px 0; }\n\n.page {\n  width: 100%;\n  height: 100vh;\n  position: relative;\n  overflow: hidden; }\n\n.page-shadow {\n  box-shadow: inset 0px 0px 250px 3px black; }\n\n.page-loader {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100%;\n  width: 100%;\n  background-color: lightcoral; }\n\n#bgVideo {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  min-width: 100%;\n  min-height: 100%;\n  width: auto;\n  height: auto;\n  z-index: -100;\n  transform: translate(-50%, -50%);\n  filter: blur(5px); }\n\n.pageLoader-enter {\n  transform: translateX(-100%); }\n\n.pageLoader-enter.pageLoader-enter-active {\n  transform: translateX(0);\n  transition: transform 500ms ease-in-out; }\n\n.pageLoader-leave {\n  transform: translate(0); }\n\n.pageLoader-leave.pageLoader-leave-active {\n  transform: translate(100%);\n  transition: transform 500ms ease-in-out; }\n\n.example-enter {\n  opacity: 0.01; }\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transition: opacity 2000ms ease-in; }\n\n.example-leave {\n  opacity: 1; }\n\n.example-leave.example-leave-active {\n  opacity: 0.01;\n  transition: opacity 2000ms ease-in; }\n\n.form {\n  display: flex;\n  flex-direction: column; }\n\n.input {\n  height: 50px;\n  margin: 5px;\n  padding: 0 20px;\n  font-size: 16px;\n  background-color: #37393b;\n  border: 0;\n  color: #fff; }\n\n.textarea {\n  color: #fff;\n  border: 0;\n  margin: 5px;\n  min-height: 150px;\n  font-size: 16px;\n  padding: 20px;\n  background-color: #37393b;\n  resize: none; }\n\n#map {\n  background-color: grey;\n  width: 100%;\n  height: 100%; }\n\n.project {\n  width: 20%;\n  height: 240px;\n  background-color: #666;\n  border-radius: 100%;\n  opacity: 0.3;\n  transition: 0.5s ease-in-out;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 30px solid lightcoral; }\n  .project:nth-child(5) {\n    opacity: 1;\n    background-color: lightblue; }\n  .project:nth-child(9) {\n    opacity: 1;\n    background-color: darkolivegreen; }\n\n.project-container {\n  background-color: lightcoral;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  transition: 0.5s ease-in-out;\n  padding: 5px; }\n", ""]);
 
 // exports
 

@@ -17,11 +17,11 @@ class Portfolio extends React.Component{
             ];
 
         var length = originalProjects.length;
-        var first3Projects = originalProjects.slice(0,3);
-        var last3Projects = originalProjects.slice((length-3),length);
+        var first4Projects = originalProjects.slice(0,4);
+        var last4Projects = originalProjects.slice((length-4),length);
         
-        var projects = last3Projects.concat(originalProjects);
-        var projects = projects.concat(first3Projects);
+        var projects = last4Projects.concat(originalProjects);
+        var projects = projects.concat(first4Projects);
         
         var pageWidth = document.getElementsByTagName('body')["0"].clientWidth - 60;
         var projectWidth = pageWidth / 4;
@@ -29,10 +29,11 @@ class Portfolio extends React.Component{
         var containerWidth = (projectWidth * projects.length);
 
         this.state = {
+            originalProjects: originalProjects,
             projects: projects,
             containerStyle: {
                 width: containerWidth + "px",
-                transform: 'translateX(' + -(projectWidth/2) + 'px)'
+                transform: 'translateX(' + -(projectWidth * (5/2)) + 'px)'
             },
             projectStyle: {
                 width: projectWidth + "px",
@@ -50,7 +51,6 @@ class Portfolio extends React.Component{
         e.preventDefault();
         console.log(index);
         var that = this;
-    //     var projects = this.state.projects;
         var projectWidth = this.state.projectStyle.width;
         var length = projectWidth.length;
 
@@ -59,14 +59,42 @@ class Portfolio extends React.Component{
         projectWidth = projectWidth.join("");
         
         var position = (projectWidth * (index-2) + (projectWidth/2));
-        console.log(projectWidth);
-        console.log(position - projectWidth);
+        
+        var projects = this.state.projects;
+        
+        var projects_length = this.state.originalProjects.length;
         
         that.setState({
             containerStyle: {
                 transform:  "translateX(-" + position + "px)"
             }
         })
+
+        if(index < 4){
+ 
+            setTimeout(()=>{
+                that.setState({
+                    containerStyle: {
+                        transform: "translateX(-" + (projectWidth * ((projects_length + index)-2) + (projectWidth/2)) + "px)",
+                        transition: "0s"
+                    }
+                })
+
+            }, 500)
+
+        } 
+        if(index > (projects_length + 3)){
+
+            setTimeout(()=>{
+                that.setState({
+                    containerStyle: {
+                        transform: "translateX(-" + ((projectWidth * ((index-projects_length)-2)) + (projectWidth/2)) + "px)",
+                        transition: "0s"
+                    }
+                })
+
+            }, 500)
+        }
         
     }
     
