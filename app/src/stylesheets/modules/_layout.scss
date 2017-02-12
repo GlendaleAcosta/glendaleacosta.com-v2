@@ -20,6 +20,10 @@
     height: 100%;
 }
 
+.flex {
+    display: flex;
+}
+
 .center-content {
     display: flex;
     justify-content: center;
@@ -41,9 +45,27 @@
     margin: 10px;
 }
 
-// Columns
+// Column size
 .col-6 {
     width: 50%;
 }
 
-
+// Row size
+.row-7 {
+    height: 58.333333333%;
+}
+.row-8 {
+    height: 66.666666666%
+}
+.row-4 {
+    height: 33.3333333333%
+}
+.portfolio-top {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+.portfolio-bottom {
+    background-color: $Test;
+}
