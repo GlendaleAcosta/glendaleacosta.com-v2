@@ -4,11 +4,13 @@ import {connect} from 'react-redux';
 import {pageLoaded} from '../../actions/pageActions';
 import {fetchPage} from '../../actions/pageActions';
 import MapContainer from 'MapContainer';
+import Email from 'Email';
 
 class Contact extends React.Component{
 
     constructor(props){
         super(props);
+        this.onSubmit = this.onSubmit.bind(this);
     }
     componentDidMount(){
         
@@ -18,6 +20,26 @@ class Contact extends React.Component{
         
     }
 
+    onSubmit(e){
+        e.preventDefault();
+
+        var that = this;
+
+        var contactInfo = {
+            email: that.refs.email.value,
+            name: that.refs.name.value,
+            subject: that.refs.subject.value,
+            message: that.refs.message.value
+        }
+        
+        Email.postContact(contactInfo)
+            .then(function(res){
+                console.log(res);
+            })
+            .catch(function(err){
+                console.log(err);
+            })
+    }
           
     
     render(){ 
@@ -30,8 +52,8 @@ class Contact extends React.Component{
 
                     <form className="form" onSubmit={this.onSubmit}>
                         <div>
-                            <input className="input" ref="email"  type="text" placeholder="Name" />
-                            <input className="input" ref="name"  type="text" placeholder="Email" />
+                            <input className="input" ref="name"  type="text" placeholder="Name" />
+                            <input className="input" ref="email"  type="text" placeholder="Email" />
                         </div>
                     
                         <input className="input" ref="subject"  type="text" placeholder="Subject" />

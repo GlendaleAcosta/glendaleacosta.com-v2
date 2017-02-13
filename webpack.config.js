@@ -36,6 +36,7 @@ module.exports = {
 
              Contact: path.resolve(__dirname, "app/src/components/pages/Contact.jsx"),
              MapContainer: path.resolve(__dirname, "app/src/components/utilities/MapContainer.jsx"),
+             Email: path.resolve(__dirname, "app/src/api/Email.js"),
              
              Navbar: path.resolve(__dirname, "app/src/components/layout/Navbar.jsx"),
              PageLoader: path.resolve(__dirname, "app/src/components/loaders/PageLoader.jsx"),
