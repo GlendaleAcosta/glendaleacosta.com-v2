@@ -17,24 +17,24 @@ class Portfolio extends React.Component{
                     details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.'
                 },
                 {
-                    name: 'Angular Movie Watchlist 2',
-                    technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
-                    details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.'
+                    name: 'Vending Machine App',
+                    technologies: ['Angularjs', 'PHP', 'MYSQL'],
+                    details: "A small app. You can select and buy drinks. There's also a save functionality to keep the history if purchased items."
                 },
                 {
-                    name: 'Angular Movie Watchlist 3',
-                    technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
-                    details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.'
+                    name: 'Pokémon Iphone App',
+                    technologies: ['Swift', 'REST Pokéapi'],
+                    details: 'Utilizes REST and API from the popular game, pokemon. It contains a search functionality, displays all pokemon , and utilizes dynamic pages showing details for each individual pokemon.'
                 },
                 {
-                    name: 'Angular Movie Watchlist 4',
-                    technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
-                    details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.'
+                    name: 'A & K Roofing',
+                    technologies: ['Wordpress', 'HTML' ,'CSS', ],
+                    details: 'A real commercial website to demonstrate abilities with wordpress and simple UI.'
                 },
                 {
-                    name: 'Angular Movie Watchlist 5',
-                    technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
-                    details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.'
+                    name: 'glendaleacosta.com-v1',
+                    technologies: ['HTML', 'Post-CSS', 'JavaScript', 'Gulp'],
+                    details: 'My first real website. It contained fancy frontend tricks like parallax. It heavily relied on gulp to minify files and utilize post-css.'
                 },
             ];
 
@@ -77,7 +77,7 @@ class Portfolio extends React.Component{
     selectItem(index, project, e ){
         
         e.preventDefault();
-        console.log(this.state.containerStyle.width);
+        
         var that = this;
         var projectWidth = this.state.projectStyle.width;
         var length = projectWidth.length;
@@ -105,11 +105,12 @@ class Portfolio extends React.Component{
             })
         }
         
-        that.setState({
+        this.setState({
             containerStyle: {
                 transform:  "translateX(-" + position + "px)"
             },
-            selectedIndex: index
+            selectedIndex: index,
+            selectedProject: project
         })
 
         if(index < 4){
@@ -156,7 +157,7 @@ class Portfolio extends React.Component{
               
                 return (        
                     <div key={index} onClick={that.selectItem.bind(this, index, project)} style={projectStyle} className={projectClass}>
-                        <p>{project.name}</p>
+                        <p className="project-title">{project.name}</p>
                     </div>
                 )
             } else {
@@ -166,7 +167,7 @@ class Portfolio extends React.Component{
                 })
                 return (        
                     <div key={index} onClick={that.selectItem.bind(this, index, project)} style={projectStyle} className={projectClass}>
-                        <p>{project.name}</p>
+                        <p className="project-title">{project.name}</p>
                     </div>
                 )
             }
@@ -183,9 +184,9 @@ class Portfolio extends React.Component{
                     <div className="col-3">
 
                     </div>
-                    <ProjectDetails
-                        selectedProject={this.state.selectedProject}
-                    />
+                    
+                    <ProjectDetails selectedProject={this.state.selectedProject}/>
+                    
                 </div>
             </div>
         );

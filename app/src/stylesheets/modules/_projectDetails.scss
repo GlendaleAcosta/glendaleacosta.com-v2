@@ -5,6 +5,7 @@
 .details-title{
     font-family: 'Lato', sans-serif;
     margin: 10px 0;
+    text-align: center;
 }
 
 .tech-list{
@@ -12,6 +13,7 @@
     padding: 0;
     list-style-type: none;
     display: flex;
+    justify-content: center;
     
     li {
         margin-left: 5px;
@@ -27,4 +29,5 @@
 .project-details {
     letter-spacing: 0.8px;
     font-size: 17px;
+    text-align: center;
 }

@@ -1,0 +1,30 @@
+.about-title {
+    font-family: 'Lato', sans-serif;
+    margin: 10px 0 ;
+}
+.about-details {
+    font-size: 19px;
+    font-family: 'Lato', sans-serif;
+}
+
+.about-exp {
+    font-family: 'Lato', sans-serif;
+    font-size: 18px;
+}
+
+.skills-container {
+    background-color: $portfolioBg;
+    position: relative;
+}
+
+.skills-box{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.me {
+    width: 50%;
+    background-color: lightcoral;
+    border-radius: 50%;
+}
