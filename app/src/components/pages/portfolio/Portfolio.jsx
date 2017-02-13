@@ -1,20 +1,41 @@
 import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {fetchPage} from '../../actions/pageActions';
-import {pageLoaded} from '../../actions/pageActions';
+import {fetchPage} from '../../../actions/pageActions';
+import {pageLoaded} from '../../../actions/pageActions';
 import classNames from 'classnames';
+import ProjectDetails from 'ProjectDetails';
 
 class Portfolio extends React.Component{
     constructor(props){
         super(props);
         this.selectItem = this.selectItem.bind(this);
         var originalProjects = [
-                {name: 'website 1'},
-                {name: 'website 2'},
-                {name: 'website 3'},
-                {name: 'website 4'},
-                {name: 'website 5'}
+                {
+                    name: 'Angular Movie Watchlist',
+                    technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
+                    details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.'
+                },
+                {
+                    name: 'Angular Movie Watchlist 2',
+                    technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
+                    details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.'
+                },
+                {
+                    name: 'Angular Movie Watchlist 3',
+                    technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
+                    details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.'
+                },
+                {
+                    name: 'Angular Movie Watchlist 4',
+                    technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
+                    details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.'
+                },
+                {
+                    name: 'Angular Movie Watchlist 5',
+                    technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
+                    details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.'
+                },
             ];
 
         var length = originalProjects.length;
@@ -28,7 +49,7 @@ class Portfolio extends React.Component{
         var projectWidth = pageWidth / 4;
         
         var containerWidth = (projectWidth * projects.length);
-
+        
         this.state = {
             originalProjects: originalProjects,
             projects: projects,
@@ -41,7 +62,7 @@ class Portfolio extends React.Component{
                 height: projectWidth + "px"
             },
             selectedIndex: 4,
-            fakeIndex: null
+            selectedProject: originalProjects[0]
         }
 
     }
@@ -56,7 +77,7 @@ class Portfolio extends React.Component{
     selectItem(index, project, e ){
         
         e.preventDefault();
-
+        console.log(this.state.containerStyle.width);
         var that = this;
         var projectWidth = this.state.projectStyle.width;
         var length = projectWidth.length;
@@ -158,7 +179,14 @@ class Portfolio extends React.Component{
                         {projectList}
                     </div>
                 </div>
-                <div className="row-4 portfolio-bottom"><h1 className="lg-txt-1">Portfolio</h1></div>
+                <div className="row-4 portfolio-bottom">
+                    <div className="col-3">
+
+                    </div>
+                    <ProjectDetails
+                        selectedProject={this.state.selectedProject}
+                    />
+                </div>
             </div>
         );
     }

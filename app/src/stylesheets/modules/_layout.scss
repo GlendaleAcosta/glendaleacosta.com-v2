@@ -49,6 +49,13 @@
 .col-6 {
     width: 50%;
 }
+.col-3 {
+    width: 25%
+}
+
+.col-9{
+    width: 75%;
+}
 
 // Row size
 .row-7 {
@@ -59,13 +66,4 @@
 }
 .row-4 {
     height: 33.3333333333%
-}
-.portfolio-top {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-    position: relative;
-}
-.portfolio-bottom {
-    background-color: $Test;
 }

@@ -1,7 +1,7 @@
 .project {
     width: 20%;
     height: 240px;
-    background-color: #666;
+    background-color: #fff;
     border-radius: 100%;
     opacity: 0.3;
     transition: translate 0.5s ease-in-out;
@@ -9,7 +9,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 30px solid lightcoral;
+    border: 30px solid $portfolioBg;
     // margin: 30px;
     cursor: pointer;
     position: relative;
@@ -24,7 +24,6 @@
     opacity: 1;
 }
 .project-container {
-    background-color: $Test2;
     height: 100%;
     display: flex;
     align-items: center;
@@ -32,4 +31,15 @@
     // left: -10%;
     top: 0;
     transition: 0.5s ease-in-out;
+    background-color: $portfolioBg;
+}
+
+.portfolio-top {
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+}
+.portfolio-bottom {
+    display: flex;    
 }
