@@ -3,6 +3,7 @@ import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {fetchPage} from '../../actions/pageActions';
 import {pageLoaded} from '../../actions/pageActions';
+import classNames from 'classnames';
 
 class Portfolio extends React.Component{
     constructor(props){
@@ -37,19 +38,25 @@ class Portfolio extends React.Component{
             },
             projectStyle: {
                 width: projectWidth + "px",
-                height: projectWidth + "px",
-            }
+                height: projectWidth + "px"
+            },
+            selectedIndex: 4,
+            fakeIndex: null
         }
 
     }
     
     componentDidMount(){
+        setTimeout(() => {
+            this.props.pageLoaded();
+        }, 1500);
         
     }
 
     selectItem(index, project, e ){
+        
         e.preventDefault();
-        console.log(index);
+
         var that = this;
         var projectWidth = this.state.projectStyle.width;
         var length = projectWidth.length;
@@ -63,11 +70,25 @@ class Portfolio extends React.Component{
         var projects = this.state.projects;
         
         var projects_length = this.state.originalProjects.length;
+        if(index < 4){
+            that.setState({
+                fakeIndex: index + 5
+            })
+        } else if(index > 8){
+            that.setState({
+                fakeIndex: index - 5
+            })
+        } else {
+            that.setState({
+                fakeIndex: null
+            })
+        }
         
         that.setState({
             containerStyle: {
                 transform:  "translateX(-" + position + "px)"
-            }
+            },
+            selectedIndex: index
         })
 
         if(index < 4){
@@ -96,18 +117,38 @@ class Portfolio extends React.Component{
             }, 500)
         }
         
+        
     }
     
     
     render(){
-        var {containerStyle, projectStyle, projects} = this.state; 
+        var {containerStyle, projectStyle, projects,selectedIndex} = this.state; 
         var that = this;
+        
         var projectList = projects.map(function(project, index){
-            return (        
-                <div key={index} onClick={that.selectItem.bind(this, index, project)} style={projectStyle} className="project">
-                    <p>{project.name}</p>
-                </div>
-            )
+            
+            if(that.state.selectedIndex === index || index === that.state.fakeIndex){
+                var projectClass = classNames({
+                    'project': true,
+                    'project-clicked': true
+                })
+              
+                return (        
+                    <div key={index} onClick={that.selectItem.bind(this, index, project)} style={projectStyle} className={projectClass}>
+                        <p>{project.name}</p>
+                    </div>
+                )
+            } else {
+                var projectClass = classNames({
+                    'project': true,
+                    'project-clicked': false
+                })
+                return (        
+                    <div key={index} onClick={that.selectItem.bind(this, index, project)} style={projectStyle} className={projectClass}>
+                        <p>{project.name}</p>
+                    </div>
+                )
+            }
         })
         
         return (

@@ -4,39 +4,32 @@
     background-color: #666;
     border-radius: 100%;
     opacity: 0.3;
-    transition: 0.5s ease-in-out;
+    transition: translate 0.5s ease-in-out;
+    transition: opacity 0.2s ease-in-out;
     display: flex;
     justify-content: center;
     align-items: center;
     border: 30px solid lightcoral;
-    // margin: 10px;
-    // &:first-child{
-    //     margin-left: 0;
-    // }
-    // &:last-child {
-    //     margin-right: 0;
-    // }
-    &:nth-child(5){
+    // margin: 30px;
+    cursor: pointer;
+    position: relative;
+    &:hover {
         opacity: 1;
-        background-color: lightblue;
-    }
-    &:nth-child(9){
-        opacity: 1;
-        background-color: darkolivegreen;
-    }
-    
+    }   
 }
 
 
+.project-clicked {
+    // background-color: maroon;
+    opacity: 1;
+}
 .project-container {
     background-color: $Test2;
     height: 100%;
     display: flex;
-    // justify-content: space-between;
     align-items: center;
-    position: absolute;
+    position: absolute;   
     // left: -10%;
     top: 0;
     transition: 0.5s ease-in-out;
-    padding: 5px;
 }

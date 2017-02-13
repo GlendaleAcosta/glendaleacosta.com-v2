@@ -19022,6 +19022,10 @@ var _redux = __webpack_require__(25);
 
 var _pageActions = __webpack_require__(56);
 
+var _classnames = __webpack_require__(613);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -19063,7 +19067,9 @@ var Portfolio = function (_React$Component) {
             projectStyle: {
                 width: projectWidth + "px",
                 height: projectWidth + "px"
-            }
+            },
+            selectedIndex: 4,
+            fakeIndex: null
         };
 
         return _this;
@@ -19071,12 +19077,19 @@ var Portfolio = function (_React$Component) {
 
     _createClass(Portfolio, [{
         key: 'componentDidMount',
-        value: function componentDidMount() {}
+        value: function componentDidMount() {
+            var _this2 = this;
+
+            setTimeout(function () {
+                _this2.props.pageLoaded();
+            }, 1500);
+        }
     }, {
         key: 'selectItem',
         value: function selectItem(index, project, e) {
+
             e.preventDefault();
-            console.log(index);
+
             var that = this;
             var projectWidth = this.state.projectStyle.width;
             var length = projectWidth.length;
@@ -19090,11 +19103,25 @@ var Portfolio = function (_React$Component) {
             var projects = this.state.projects;
 
             var projects_length = this.state.originalProjects.length;
+            if (index < 4) {
+                that.setState({
+                    fakeIndex: index + 5
+                });
+            } else if (index > 8) {
+                that.setState({
+                    fakeIndex: index - 5
+                });
+            } else {
+                that.setState({
+                    fakeIndex: null
+                });
+            }
 
             that.setState({
                 containerStyle: {
                     transform: "translateX(-" + position + "px)"
-                }
+                },
+                selectedIndex: index
             });
 
             if (index < 4) {
@@ -19126,19 +19153,43 @@ var Portfolio = function (_React$Component) {
             var _state = this.state,
                 containerStyle = _state.containerStyle,
                 projectStyle = _state.projectStyle,
-                projects = _state.projects;
+                projects = _state.projects,
+                selectedIndex = _state.selectedIndex;
 
             var that = this;
+
             var projectList = projects.map(function (project, index) {
-                return _react2.default.createElement(
-                    'div',
-                    { key: index, onClick: that.selectItem.bind(this, index, project), style: projectStyle, className: 'project' },
-                    _react2.default.createElement(
-                        'p',
-                        null,
-                        project.name
-                    )
-                );
+
+                if (that.state.selectedIndex === index || index === that.state.fakeIndex) {
+                    var projectClass = (0, _classnames2.default)({
+                        'project': true,
+                        'project-clicked': true
+                    });
+
+                    return _react2.default.createElement(
+                        'div',
+                        { key: index, onClick: that.selectItem.bind(this, index, project), style: projectStyle, className: projectClass },
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            project.name
+                        )
+                    );
+                } else {
+                    var projectClass = (0, _classnames2.default)({
+                        'project': true,
+                        'project-clicked': false
+                    });
+                    return _react2.default.createElement(
+                        'div',
+                        { key: index, onClick: that.selectItem.bind(this, index, project), style: projectStyle, className: projectClass },
+                        _react2.default.createElement(
+                            'p',
+                            null,
+                            project.name
+                        )
+                    );
+                }
             });
 
             return _react2.default.createElement(
@@ -20738,7 +20789,7 @@ exports = module.exports = __webpack_require__(331)();
 exports.push([module.i, "@import url(https://fonts.googleapis.com/css?family=Lato:300|Poppins:500,600);", ""]);
 
 // module
-exports.push([module.i, ".lg-txt-1 {\n  font-size: 90px;\n  font-weight: 600; }\n\n.lg-txt-3 {\n  font-size: 35px; }\n\n.lg-txt-4 {\n  font-size: 30px; }\n\n.divider {\n  width: 300px;\n  border: 1px solid rgba(255, 255, 255, 0.8);\n  border-radius: 10px; }\n\n.white {\n  color: #fff; }\n\n.white-ish {\n  color: rgba(255, 255, 255, 0.8); }\n\n* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0; }\n\nh1, h2, h3, h4, h5, h6 {\n  font-family: 'Poppins', sans-serif;\n  margin: 0; }\n\np {\n  font-family: 'Lato', sans-serif;\n  margin: 0; }\n\n.btn {\n  background-color: rgba(0, 0, 0, 0.1);\n  padding: 5px 25px 5px 25px;\n  font-family: 'Poppins', sans-serif;\n  text-decoration: none;\n  color: #fff;\n  border-radius: 30px;\n  border: 2px solid #fff;\n  font-size: 23px; }\n\n.form-btn {\n  font-size: 16px;\n  padding: 5px 15px;\n  border: 1px solid black;\n  background: transparent;\n  margin: 5px;\n  cursor: pointer; }\n\n.fullscreen {\n  width: 100%;\n  height: 100vh;\n  display: flex; }\n\n.hero {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: rgba(15, 12, 5, 0.61);\n  flex-direction: column; }\n\n.container {\n  display: flex;\n  width: 100%;\n  height: 100%; }\n\n.flex {\n  display: flex; }\n\n.center-content {\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\n.flex-column {\n  flex-direction: column; }\n\n.right {\n  justify-content: flex-end; }\n\n.mgn-1 {\n  margin: 20px; }\n\n.mgn-2 {\n  margin: 10px; }\n\n.col-6 {\n  width: 50%; }\n\n.row-7 {\n  height: 58.333333333%; }\n\n.row-8 {\n  height: 66.666666666%; }\n\n.row-4 {\n  height: 33.3333333333%; }\n\n.portfolio-top {\n  display: flex;\n  align-items: center;\n  overflow: hidden;\n  position: relative; }\n\n.portfolio-bottom {\n  background-color: lightblue; }\n\n.navbar {\n  background-color: #101010;\n  width: 60px;\n  height: 100vh;\n  display: flex;\n  justify-content: space-around;\n  flex-direction: column; }\n\n.nav-content {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column; }\n\n.nav-link {\n  color: #fff;\n  text-decoration: none; }\n\n.nav-icon {\n  width: 40px;\n  height: 40px;\n  padding: 5px 0 5px 0;\n  background-color: maroon;\n  border-radius: 50%; }\n\n.nav-logo {\n  width: 50px;\n  height: 50px;\n  font-size: 50px;\n  text-align: center;\n  color: #fff;\n  text-decoration: none; }\n\n.nav-social {\n  width: 25px;\n  height: 25px;\n  margin: 5px 0 5px 0; }\n\n.page {\n  width: 100%;\n  height: 100vh;\n  position: relative;\n  overflow: hidden; }\n\n.page-shadow {\n  box-shadow: inset 0px 0px 250px 3px black; }\n\n.page-loader {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100%;\n  width: 100%;\n  background-color: lightcoral; }\n\n#bgVideo {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  min-width: 100%;\n  min-height: 100%;\n  width: auto;\n  height: auto;\n  z-index: -100;\n  transform: translate(-50%, -50%);\n  filter: blur(5px); }\n\n.pageLoader-enter {\n  transform: translateX(-100%); }\n\n.pageLoader-enter.pageLoader-enter-active {\n  transform: translateX(0);\n  transition: transform 500ms ease-in-out; }\n\n.pageLoader-leave {\n  transform: translate(0); }\n\n.pageLoader-leave.pageLoader-leave-active {\n  transform: translate(100%);\n  transition: transform 500ms ease-in-out; }\n\n.example-enter {\n  opacity: 0.01; }\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transition: opacity 2000ms ease-in; }\n\n.example-leave {\n  opacity: 1; }\n\n.example-leave.example-leave-active {\n  opacity: 0.01;\n  transition: opacity 2000ms ease-in; }\n\n.form {\n  display: flex;\n  flex-direction: column; }\n\n.input {\n  height: 50px;\n  margin: 5px;\n  padding: 0 20px;\n  font-size: 16px;\n  background-color: #37393b;\n  border: 0;\n  color: #fff; }\n\n.textarea {\n  color: #fff;\n  border: 0;\n  margin: 5px;\n  min-height: 150px;\n  font-size: 16px;\n  padding: 20px;\n  background-color: #37393b;\n  resize: none; }\n\n#map {\n  background-color: grey;\n  width: 100%;\n  height: 100%; }\n\n.project {\n  width: 20%;\n  height: 240px;\n  background-color: #666;\n  border-radius: 100%;\n  opacity: 0.3;\n  transition: 0.5s ease-in-out;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 30px solid lightcoral; }\n  .project:nth-child(5) {\n    opacity: 1;\n    background-color: lightblue; }\n  .project:nth-child(9) {\n    opacity: 1;\n    background-color: darkolivegreen; }\n\n.project-container {\n  background-color: lightcoral;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  transition: 0.5s ease-in-out;\n  padding: 5px; }\n", ""]);
+exports.push([module.i, ".lg-txt-1 {\n  font-size: 90px;\n  font-weight: 600; }\n\n.lg-txt-3 {\n  font-size: 35px; }\n\n.lg-txt-4 {\n  font-size: 30px; }\n\n.divider {\n  width: 300px;\n  border: 1px solid rgba(255, 255, 255, 0.8);\n  border-radius: 10px; }\n\n.white {\n  color: #fff; }\n\n.white-ish {\n  color: rgba(255, 255, 255, 0.8); }\n\n* {\n  box-sizing: border-box; }\n\nbody {\n  margin: 0;\n  padding: 0; }\n\nh1, h2, h3, h4, h5, h6 {\n  font-family: 'Poppins', sans-serif;\n  margin: 0; }\n\np {\n  font-family: 'Lato', sans-serif;\n  margin: 0; }\n\n.btn {\n  background-color: rgba(0, 0, 0, 0.1);\n  padding: 5px 25px 5px 25px;\n  font-family: 'Poppins', sans-serif;\n  text-decoration: none;\n  color: #fff;\n  border-radius: 30px;\n  border: 2px solid #fff;\n  font-size: 23px; }\n\n.form-btn {\n  font-size: 16px;\n  padding: 5px 15px;\n  border: 1px solid black;\n  background: transparent;\n  margin: 5px;\n  cursor: pointer; }\n\n.fullscreen {\n  width: 100%;\n  height: 100vh;\n  display: flex; }\n\n.hero {\n  width: 100%;\n  height: 100%;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  background-color: rgba(15, 12, 5, 0.61);\n  flex-direction: column; }\n\n.container {\n  display: flex;\n  width: 100%;\n  height: 100%; }\n\n.flex {\n  display: flex; }\n\n.center-content {\n  display: flex;\n  justify-content: center;\n  align-items: center; }\n\n.flex-column {\n  flex-direction: column; }\n\n.right {\n  justify-content: flex-end; }\n\n.mgn-1 {\n  margin: 20px; }\n\n.mgn-2 {\n  margin: 10px; }\n\n.col-6 {\n  width: 50%; }\n\n.row-7 {\n  height: 58.333333333%; }\n\n.row-8 {\n  height: 66.666666666%; }\n\n.row-4 {\n  height: 33.3333333333%; }\n\n.portfolio-top {\n  display: flex;\n  align-items: center;\n  overflow: hidden;\n  position: relative; }\n\n.portfolio-bottom {\n  background-color: lightblue; }\n\n.navbar {\n  background-color: #101010;\n  width: 60px;\n  height: 100vh;\n  display: flex;\n  justify-content: space-around;\n  flex-direction: column; }\n\n.nav-content {\n  list-style-type: none;\n  margin: 0;\n  padding: 0;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  flex-direction: column; }\n\n.nav-link {\n  color: #fff;\n  text-decoration: none; }\n\n.nav-icon {\n  width: 40px;\n  height: 40px;\n  padding: 5px 0 5px 0;\n  background-color: maroon;\n  border-radius: 50%; }\n\n.nav-logo {\n  width: 50px;\n  height: 50px;\n  font-size: 50px;\n  text-align: center;\n  color: #fff;\n  text-decoration: none; }\n\n.nav-social {\n  width: 25px;\n  height: 25px;\n  margin: 5px 0 5px 0; }\n\n.page {\n  width: 100%;\n  height: 100vh;\n  position: relative;\n  overflow: hidden; }\n\n.page-shadow {\n  box-shadow: inset 0px 0px 250px 3px black; }\n\n.page-loader {\n  position: absolute;\n  top: 0;\n  left: 0;\n  z-index: 100;\n  height: 100%;\n  width: 100%;\n  background-color: lightcoral; }\n\n#bgVideo {\n  position: absolute;\n  top: 50%;\n  left: 50%;\n  min-width: 100%;\n  min-height: 100%;\n  width: auto;\n  height: auto;\n  z-index: -100;\n  transform: translate(-50%, -50%);\n  filter: blur(5px); }\n\n.pageLoader-enter {\n  transform: translateX(-100%); }\n\n.pageLoader-enter.pageLoader-enter-active {\n  transform: translateX(0);\n  transition: transform 500ms ease-in-out; }\n\n.pageLoader-leave {\n  transform: translate(0); }\n\n.pageLoader-leave.pageLoader-leave-active {\n  transform: translate(100%);\n  transition: transform 500ms ease-in-out; }\n\n.example-enter {\n  opacity: 0.01; }\n\n.example-enter.example-enter-active {\n  opacity: 1;\n  transition: opacity 2000ms ease-in; }\n\n.example-leave {\n  opacity: 1; }\n\n.example-leave.example-leave-active {\n  opacity: 0.01;\n  transition: opacity 2000ms ease-in; }\n\n.form {\n  display: flex;\n  flex-direction: column; }\n\n.input {\n  height: 50px;\n  margin: 5px;\n  padding: 0 20px;\n  font-size: 16px;\n  background-color: #37393b;\n  border: 0;\n  color: #fff; }\n\n.textarea {\n  color: #fff;\n  border: 0;\n  margin: 5px;\n  min-height: 150px;\n  font-size: 16px;\n  padding: 20px;\n  background-color: #37393b;\n  resize: none; }\n\n#map {\n  background-color: grey;\n  width: 100%;\n  height: 100%; }\n\n.project {\n  width: 20%;\n  height: 240px;\n  background-color: #666;\n  border-radius: 100%;\n  opacity: 0.3;\n  transition: translate 0.5s ease-in-out;\n  transition: opacity 0.2s ease-in-out;\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  border: 30px solid lightcoral;\n  cursor: pointer;\n  position: relative; }\n  .project:hover {\n    opacity: 1; }\n\n.project-clicked {\n  opacity: 1; }\n\n.project-container {\n  background-color: lightcoral;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  position: absolute;\n  top: 0;\n  transition: 0.5s ease-in-out; }\n", ""]);
 
 // exports
 
@@ -45530,6 +45581,61 @@ _reactDom2.default.render(_react2.default.createElement(
         )
     )
 ), document.getElementById('app'));
+
+/***/ }),
+/* 613 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var __WEBPACK_AMD_DEFINE_ARRAY__, __WEBPACK_AMD_DEFINE_RESULT__;/*!
+  Copyright (c) 2016 Jed Watson.
+  Licensed under the MIT License (MIT), see
+  http://jedwatson.github.io/classnames
+*/
+/* global define */
+
+(function () {
+	'use strict';
+
+	var hasOwn = {}.hasOwnProperty;
+
+	function classNames () {
+		var classes = [];
+
+		for (var i = 0; i < arguments.length; i++) {
+			var arg = arguments[i];
+			if (!arg) continue;
+
+			var argType = typeof arg;
+
+			if (argType === 'string' || argType === 'number') {
+				classes.push(arg);
+			} else if (Array.isArray(arg)) {
+				classes.push(classNames.apply(null, arg));
+			} else if (argType === 'object') {
+				for (var key in arg) {
+					if (hasOwn.call(arg, key) && arg[key]) {
+						classes.push(key);
+					}
+				}
+			}
+		}
+
+		return classes.join(' ');
+	}
+
+	if (typeof module !== 'undefined' && module.exports) {
+		module.exports = classNames;
+	} else if (true) {
+		// register as 'classnames', consistent with npm package name
+		!(__WEBPACK_AMD_DEFINE_ARRAY__ = [], __WEBPACK_AMD_DEFINE_RESULT__ = function () {
+			return classNames;
+		}.apply(exports, __WEBPACK_AMD_DEFINE_ARRAY__),
+				__WEBPACK_AMD_DEFINE_RESULT__ !== undefined && (module.exports = __WEBPACK_AMD_DEFINE_RESULT__));
+	} else {
+		window.classNames = classNames;
+	}
+}());
+
 
 /***/ })
 /******/ ]);
