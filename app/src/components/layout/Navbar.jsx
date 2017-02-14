@@ -61,10 +61,19 @@ class Navbar extends React.Component{
                     </li>
                 </ul>
                 <ul className="nav-content">
-                    <li className="nav-link"><img className="nav-social" src="../../images/facebook_icon.svg"/></li>
-                    <li className="nav-link"><img className="nav-social" src="../../images/twitter_icon.svg"/></li>
-                    <li className="nav-link"><img className="nav-social" src="../../images/linkedin_icon.svg"/></li>
-                    <li className="nav-link"><img className="nav-social" src="../../images/github_icon.svg"/></li>
+                    <li className="nav-link">
+                        <a href='#'><img className="nav-social" src="../../images/facebook_icon.svg"/></a>
+                    </li>
+                    <li className="nav-link">
+                        <a href='#'><img className="nav-social" src="../../images/twitter_icon2.svg"/></a>
+                    </li>
+                    <li className="nav-link">
+                        <a href='#'><img className="nav-social" src="../../images/linkedin_icon.svg"/></a>
+                    </li>
+
+                    <li className="nav-link">
+                         <a href='#'><img className="nav-social" src="../../images/github_icon3.svg"/></a>
+                    </li>
                 </ul>
             </nav>
         );

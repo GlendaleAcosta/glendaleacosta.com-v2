@@ -1,5 +1,5 @@
 .btn {
-    background-color: rgba(0,0,0,0.1);
+    background-color: $c1;
     padding: 5px 25px 5px 25px;
     font-family: 'Poppins', sans-serif;
     text-decoration: none;
@@ -7,6 +7,12 @@
     border-radius: 30px;
     border: 2px solid #fff;
     font-size: 23px;
+    transition: 0.125s ease-in-out;
+
+    &:hover {
+        // background-color: rgba(154,45,54,0);
+        border-color: $c1;
+    }
 }
 
 .form-btn {
@@ -23,9 +29,16 @@
     text-decoration: none;
     font-family: 'Lato', sans-serif;
     font-size: 20px;
-    background-color: lightblue;
+    background-color: $c1;
+    color: #fff;
     margin: 15px;
     border-radius: 0;
-    border: 0;
+    border: 2px solid $c1;
     cursor: pointer;
+    
+    transition: 0.125s ease-in-out;
+    &:hover {
+        background-color: $portfolioBg;
+        color: $c1;
+    }
 }
