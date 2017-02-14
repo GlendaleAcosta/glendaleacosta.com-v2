@@ -11,11 +11,17 @@
 .contact-map-container {
     overflow: hidden;
     position: relative;
+    @include phone {
+        display: none;
+    }
 }
 .contact-form-container {
     position: relative; 
     background-size: cover;
-    box-shadow:inset 0px 0px 20px 0px rgba(21, 21, 21, 0.96)
+    box-shadow:inset 0px 0px 20px 0px rgba(21, 21, 21, 0.96);
+    @include phone {
+        height: 900px;
+    }
 }
 
 .contact-email {

@@ -58,17 +58,26 @@ class Portfolio extends React.Component{
         var projects = last4Projects.concat(originalProjects);
         var projects = projects.concat(first4Projects);
         
-        var pageWidth = document.getElementsByTagName('body')["0"].clientWidth - 60;
-        var projectWidth = pageWidth / 4;
-        
+        var pageWidth = document.getElementsByTagName('html')["0"].clientWidth;
+        var projectWidth;
+        var translateX;
+        if(pageWidth < 769){
+            projectWidth = pageWidth / (5/4);
+            translateX = ( (projectWidth/8) - (projectWidth * 4));
+        } else {
+            pageWidth = pageWidth - 60;
+            projectWidth = pageWidth / 4;
+            translateX = -(projectWidth * (5/2));
+        }
+        console.log(pageWidth);
         var containerWidth = (projectWidth * projects.length);
-        
+        // (projectWidth / 8)
         this.state = {
             originalProjects: originalProjects,
             projects: projects,
             containerStyle: {
                 width: containerWidth + "px",
-                transform: 'translateX(' + -(projectWidth * (5/2)) + 'px)'
+                transform: 'translateX(' + translateX + 'px)'
             },
             projectStyle: {
                 width: projectWidth + "px",
@@ -187,7 +196,7 @@ class Portfolio extends React.Component{
         })
         
         return (
-            <div className="container flex-column">
+            <div className="portfolio-top-container">
                 <div className="row-8 portfolio-top">
                     <div style={containerStyle} className="project-container">
                         {projectList}

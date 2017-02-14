@@ -33,6 +33,7 @@
     align-items: center;
     position: relative;
     z-index: 10;
+    @include phone {padding-top: 60px;}
 }
 .me {
     width: 50%;

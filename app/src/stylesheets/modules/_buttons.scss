@@ -39,6 +39,9 @@
         background-color: transparent;
         color: $c1
     }
+    @include phone {
+        width: 100%;
+    }
 }
 
 .resume-btn {
