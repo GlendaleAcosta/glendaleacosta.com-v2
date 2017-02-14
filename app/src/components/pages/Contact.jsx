@@ -11,6 +11,9 @@ class Contact extends React.Component{
     constructor(props){
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
+        this.state = {
+            serverResponse: null
+        }
     }
     componentDidMount(){
         
@@ -34,7 +37,17 @@ class Contact extends React.Component{
         
         Email.postContact(contactInfo)
             .then(function(res){
-                console.log(res);
+                var msg = res.body.msg;
+                if (msg){
+                    that.refs.email.value = '';
+                    that.refs.name.value = '';
+                    that.refs.subject.value = '';
+                    that.refs.message.value = '';
+                    that.setState({
+                        serverResponse: msg
+                    })
+                }
+
             })
             .catch(function(err){
                 console.log(err);
@@ -43,7 +56,15 @@ class Contact extends React.Component{
           
     
     render(){ 
+        var {serverResponse} = this.state;
 
+        function renderBtn(){
+            if(!serverResponse){
+                return <button type="submit" className="form-btn">Send</button>  
+            } else {
+                return <p className="contact-response">{serverResponse}</p>
+            }
+        }
 
         return (
             <div className="container">
@@ -62,7 +83,7 @@ class Contact extends React.Component{
                             <textarea className="textarea" ref="message" type="text" placeholder="Message" />
                                 
                             <div className="container right">
-                                <button type="submit" className="form-btn">Send</button>   
+                                {renderBtn()}
                             </div>
                             
                         </form>

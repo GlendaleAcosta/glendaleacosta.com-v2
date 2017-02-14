@@ -37,9 +37,9 @@ app.post('/contact', function(req, res, next){
     });    
 
     let mailOptions = {
-        from: '"GlendaleAcosta" <silentpony@hotmail.com>', 
+        from: '"glendaleacosta.com <silentpony@hotmail.com>', 
         to: 'gglendale17@gmail.com', 
-        subject: "glendaleacosta.com: " + contactInfo.subject, 
+        subject: contactInfo.subject, 
         
         html: 
             '<ul>  \
@@ -51,12 +51,15 @@ app.post('/contact', function(req, res, next){
     transporter.sendMail(mailOptions, (error, info) => {
         if (error) {
             return console.log(error);
+            return res.json({
+                msg: "Whoops, try again later."
+            })
         }
-        
+        return res.json({
+            msg: "You message has been sent!"
+        })    
     });
-    res.json({
-        msg: "worked!"
-    })
+    
 });
 app.get('/*', function(req,res,next){
     res.sendFile(path.join(__dirname, 'app', 'public', 'index.html'));
