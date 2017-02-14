@@ -29,7 +29,7 @@ class Home extends React.Component {
 
                 <hr className="divider"/>
                 <p className="lg-txt-4 mgn-1 white-ish">A normal college student by day, and a vigilante hacker by night</p>
-                <Link className="btn mgn-2" to="/portfolio">View Portfolio</Link>
+                <Link className="arrow-btn mgn-2" to="/portfolio">View Portfolio <img src="../../images/btn_right-arrow.svg"/></Link>
 
                 <Video id="bgVideo" autoPlay loop muted
                     poster="http://sourceposter.jpg">

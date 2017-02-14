@@ -1,4 +1,4 @@
-.btn {
+.arrow-btn {
     background-color: $c1;
     padding: 5px 25px 5px 25px;
     font-family: 'Poppins', sans-serif;
@@ -8,10 +8,21 @@
     border: 2px solid #fff;
     font-size: 23px;
     transition: 0.125s ease-in-out;
-
+    display: flex;
     &:hover {
         // background-color: rgba(154,45,54,0);
         border-color: $c1;
+        img {
+            margin-left: 10px;
+            display: block;
+            width: 30px;
+            
+        }
+    }
+    img {
+        margin-left: 0px;
+        width: 0;
+        transition: 0.125s ease-in-out;
     }
 }
 

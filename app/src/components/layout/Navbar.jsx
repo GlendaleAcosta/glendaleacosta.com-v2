@@ -68,11 +68,11 @@ class Navbar extends React.Component{
                         <a href='#'><img className="nav-social" src="../../images/twitter_icon2.svg"/></a>
                     </li>
                     <li className="nav-link">
-                        <a href='#'><img className="nav-social" src="../../images/linkedin_icon.svg"/></a>
+                        <a href='https://www.linkedin.com/in/glendale-acosta-608b88116/'><img className="nav-social" src="../../images/linkedin_icon.svg"/></a>
                     </li>
 
                     <li className="nav-link">
-                         <a href='#'><img className="nav-social" src="../../images/github_icon3.svg"/></a>
+                         <a href='https://github.com/glendaleacosta'><img className="nav-social" src="../../images/github_icon3.svg"/></a>
                     </li>
                 </ul>
             </nav>
