@@ -21,6 +21,9 @@
     background-color: $portfolioBg;
     position: relative;
     overflow: hidden;
+    background-size: cover;
+    // background-position: 0, 0; 
+    background-position-y: -100%;
 }
 
 .skills-box{

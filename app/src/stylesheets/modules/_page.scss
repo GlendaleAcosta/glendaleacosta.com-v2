@@ -34,17 +34,21 @@
 }
 .load-text {
   color: $c1; 
+  animation: loadTextColor 2s ease-in-out;
 }
 
 .load-elipses {
   color: #fff;
   // transform: scale(3,3);
-  animation: elipses 0.2s ease-in-out inifinte;
+  // animation: elipses 0.2s ease-in-out inifinte;
 }
-@keyframes elipses {
-  0% { transform: scale(0,0);}
-  50% { transform: scale(2,2);}
-  100% { transform: scale(0,0);}
+@keyframes loadTextColor {
+  0% {color: $c2;}
+  60% {color: $c2;}
+  85% {transform: scale(1,1);}
+  90% {transform: scale(0.6,0.6);}
+  95% {transform: scale(1.2,1.2);}
+  100% {color: $c1; transform: scale(1,1);}
 }
 
 .load-bar-container {
