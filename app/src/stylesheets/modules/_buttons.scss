@@ -73,6 +73,9 @@
     text-decoration: none;
     letter-spacing: 0.7px;
     font-family: 'Lato', sans-serif;
+    @include phone {
+        margin-bottom: 0;
+    }
 }
 
 .web-btn {
@@ -87,8 +90,16 @@
 }
 
 .links {
-    margin-top: 55px;
+    // margin-top: 55px;
+    align-items: center;
     margin-left: 10px;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    @include phone {
+        margin-top: 10px;
+        margin-left: 0;
+        flex-direction: row;
+        padding-bottom: 20px;
+    }
 }

@@ -1,5 +1,8 @@
-.details-container {
-    
+.project-details-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
 }
 
 .details-title{
@@ -14,16 +17,28 @@
     list-style-type: none;
     display: flex;
     justify-content: center;
+
+    @include phone {
+        flex-wrap: wrap;
+    }
     
     li {
         margin-left: 5px;
         background-color: $portfolioBg;
         padding: 5px 10px;
         border-radius: 5px;
+
+        &:first-child{
+            margin-left: 0;
+        }
+        @include phone {
+            margin: 5px;
+            &:first-child{
+                margin-left: 5px;
+            }
+        }
     }
-    li:first-child{
-        margin-left: 0;
-    }
+    
 }
 
 .project-details {

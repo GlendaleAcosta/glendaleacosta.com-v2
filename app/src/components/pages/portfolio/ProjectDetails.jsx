@@ -15,7 +15,7 @@ export default class ProjectDetails extends React.Component{
         })
         
         return(
-            <div className="col-6"> 
+            <div className="col-6 project-details-container"> 
                 <h1 className="details-title">{selectedProject.name}</h1>
                 <ul className="tech-list">
                     {technologies}

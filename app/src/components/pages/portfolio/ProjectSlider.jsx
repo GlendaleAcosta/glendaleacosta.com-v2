@@ -19,7 +19,6 @@ export default class ProjectList extends React.Component{
         var that = this;
         
         var projectList = projects.map(function(project, index){
-            console.log("here");
             
             if(selectedIndex === index || index === fakeIndex){
                 var projectClass = classNames({ 'project': true, 'project-clicked': true })

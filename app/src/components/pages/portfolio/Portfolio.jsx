@@ -109,7 +109,7 @@ class Portfolio extends React.Component{
         projectWidth = projectWidth.join("");
         
         var pageWidth = document.getElementsByTagName('html')["0"].clientWidth;
-        console.log(pageWidth);
+        
         var quarterWidth;
         var halfWidth;
          if(pageWidth < 769){
@@ -117,9 +117,7 @@ class Portfolio extends React.Component{
         } else {
             halfWidth = (projectWidth/2);
         }
-        console.log(halfWidth);
         
-        // var position = (projectWidth * (index-2) + (projectWidth/2));
         var position = quarterWidth - (projectWidth * index) || halfWidth - (projectWidth * (index-1));  
         
         var projects = this.state.projects;
@@ -151,11 +149,7 @@ class Portfolio extends React.Component{
             var translateX;
             if(quarterWidth){ translateX = (quarterWidth) - (projectWidth * (projects_length + index)) }
             if(halfWidth) { translateX = (halfWidth) - (projectWidth * (projects_length + (index - 1)))}
-                
-             
-                // translateX = -((projectWidth * ((projects_length + index)-2) + (projectWidth/2)));
-             
-            
+  
             setTimeout(()=>{
                 that.setState({
                     containerStyle: {
@@ -189,20 +183,12 @@ class Portfolio extends React.Component{
     
     render(){
         var that = this;
-        var {   containerStyle, 
-                projectStyle, 
-                projects ,
-                selectedIndex, 
-                fakeIndex, 
-                selectedProject, 
-                originalProjects } = this.state; 
+        var {   containerStyle, projectStyle, projects ,
+                selectedIndex, fakeIndex, selectedProject, originalProjects } = this.state; 
         
-            
         return (
             <div className="portfolio-top-container">
                 <div className="row-8 portfolio-top">
-                    
-                        {/*{projectList}*/}
                         <ProjectSlider 
                             projects={projects} 
                             selectedIndex={selectedIndex}
@@ -211,7 +197,6 @@ class Portfolio extends React.Component{
                             containerStyle={containerStyle}
                             onItemSelect={this.handleItemSelect}
                         />
-                    
                 </div>
                 <div className="row-4 portfolio-bottom">
                     <ProjectCounter 
