@@ -8,7 +8,8 @@ export default class Skills extends React.Component{
         height = height / 4;
         this.state ={
             style: {
-                height: height + "px"
+                height: height + "px",
+                backgroundImage: "url('../../../images/Profile-pic-1.jpeg')"
             }
         }
         this.downloadResume = this.downloadResume.bind(this);
@@ -33,12 +34,7 @@ export default class Skills extends React.Component{
                 <div style={style} className="me">    
                     
                 </div>
-                <button 
-                    onClick={this.downloadResume} 
-                    className="resume-btn"
-                >
-                    Download Resume
-                </button>
+                <button  onClick={this.downloadResume} className="resume-btn" >Download Resume</button>
             </div>
             
             

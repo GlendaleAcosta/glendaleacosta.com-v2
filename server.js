@@ -52,7 +52,7 @@ app.post('/contact', function(req, res, next){
         if (error) {
             return console.log(error);
         }
-        console.log('Message %s sent: %s', info.messageId, info.response);
+        
     });
     res.json({
         msg: "worked!"
@@ -67,13 +67,3 @@ app.get('/*', function(req,res,next){
 app.listen( PORT , () => {
     console.log("App is up on port " + PORT);
 });
-
-
-
-
-// create reusable transporter object using the default SMTP transport
-
-
-// setup email data with unicode symbols
-
-// send mail with defined transport object

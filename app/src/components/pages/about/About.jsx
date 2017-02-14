@@ -21,7 +21,9 @@ class About extends React.Component{
         return (
             <div className="container">
                 <div className="col-6 center-content flex-column">
-                    <div className="col-9">
+                    <div className="col-9 about-container">
+
+                        
                         <h1 className="about-title">Hi, I'm Glendale Acosta</h1>
                         <p className="about-details">
                             I'm currently a student in college and avidly looking for a job. Here's a brief rundown of my experience.
@@ -36,11 +38,13 @@ class About extends React.Component{
                         <p className="about-details">
                             My latest projects on github (including this website) are a good overview of where my skills are at.
                         </p>
+                        
                     </div>
                     
                 </div>
                 <div className="col-6 center-content flex-column skills-container">
                     <Skills />
+                    <div className="rectangle"></div>
                 </div>
             </div>
         );
