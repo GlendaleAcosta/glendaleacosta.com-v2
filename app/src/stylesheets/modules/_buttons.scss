@@ -29,10 +29,16 @@
 .form-btn {
     font-size: 16px;
     padding: 5px 15px;
-    border: 1px solid black;
-    background: transparent;
+    border: 1px solid $c1;
+    background-color: $c1;
+    color: #fff;
     margin: 5px;
     cursor: pointer;
+    transition: 0.125s ease-in-out;
+    &:hover {
+        background-color: transparent;
+        color: $c1
+    }
 }
 
 .resume-btn {

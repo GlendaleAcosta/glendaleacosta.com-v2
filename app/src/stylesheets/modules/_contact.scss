@@ -1,0 +1,25 @@
+.contact-info {
+    z-index: 100;
+    background-color: rgba(0,0,0,0.82);
+    box-shadow: -10px -10px 40px 2px rgba(0,0,0,0.82);
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    padding: 20px;
+    width: 100%;
+}
+.contact-map-container {
+    overflow: hidden;
+    position: relative;
+}
+.contact-form-container {
+    position: relative; 
+    background-size: cover;
+    // background-image: url('../images/city.jpg');
+}
+
+.contact-email {
+    color: $c2;
+    margin: 5px;
+    letter-spacing: 0.8px;
+}

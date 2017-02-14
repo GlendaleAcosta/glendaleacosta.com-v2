@@ -47,28 +47,31 @@ class Contact extends React.Component{
 
         return (
             <div className="container">
-                <div className="col-6 center-content flex-column">
-                    <h1 className="lg-txt-4">Contact Me</h1>
-
-                    <form className="form" onSubmit={this.onSubmit}>
-                        <div>
-                            <input className="input" ref="name"  type="text" placeholder="Name" />
-                            <input className="input" ref="email"  type="text" placeholder="Email" />
-                        </div>
-                    
-                        <input className="input" ref="subject"  type="text" placeholder="Subject" />
-                    
-                        <textarea className="textarea" ref="message" type="text" placeholder="Message" />
-                            
-                        <div className="container right">
-                            <button type="submit" className="form-btn">Send</button>   
-                        </div>
+                <div style={{backgroundImage: "url('../../images/city2.jpg')"}} className="col-6 center-content flex-column contact-form-container">
+                    <div className="form-container">
+                        <h1 className="lg-txt-4">Contact Me</h1>
+                        <p className="contact-email">My Email: gglendale17@gmail.com</p>
+                        <form className="form" onSubmit={this.onSubmit}>
+                            <div>
+                                <input className="input" ref="name"  type="text" placeholder="Name" />
+                                <input className="input" ref="email"  type="text" placeholder="Email" />
+                            </div>
                         
-                    </form>
+                            <input className="input" ref="subject"  type="text" placeholder="Subject" />
+                        
+                            <textarea className="textarea" ref="message" type="text" placeholder="Message" />
+                                
+                            <div className="container right">
+                                <button type="submit" className="form-btn">Send</button>   
+                            </div>
+                            
+                        </form>
+                        
+                    </div>
 
                 </div>
                 
-                <div className="col-6">
+                <div className="col-6 contact-map-container">
                     <MapContainer/>
                 </div>
             </div>
@@ -77,6 +80,10 @@ class Contact extends React.Component{
 }
 
 
+                    /*<div className="contact-info">
+					    <p>Email: gglendale17@gmail.com</p>
+                        <p>Phone: (707) 386-4926</p>
+				    </div>*/
 // Redux Config
 function mapStateToProps(state){
     return {page: state.page};

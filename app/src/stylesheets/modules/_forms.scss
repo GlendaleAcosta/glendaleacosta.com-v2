@@ -2,14 +2,27 @@
     display: flex;
     flex-direction: column;
 }
+.form-container {
+    background-color: $c3;
+    padding: 40px 20px;
+    box-shadow: 2px 2px 20px rgba(0,0,0,0.7);
+    h1 {
+        color: $c1;
+        margin-left: 5px;
+    }
+}
 .input {
     height: 50px;
     margin: 5px;
     padding: 0 20px;
     font-size: 16px;
-    background-color: #37393b;
+    background-color: #f1ebd2;
     border: 0; 
     color: #fff;
+    outline: none;
+    &::-webkit-input-placeholder{
+        color: $c2;
+    }
 }
 .textarea {
     color:#fff;
@@ -18,8 +31,12 @@
     min-height: 150px;
     font-size: 16px;
     padding: 20px;
-    background-color: #37393b;
+    background-color: #f1ebd2;
     resize: none;
+    outline: none;
+    &::-webkit-input-placeholder{
+        color: $c2;
+    }
 }
 
 
