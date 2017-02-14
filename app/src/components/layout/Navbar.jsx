@@ -33,8 +33,8 @@ class Navbar extends React.Component{
             <nav className="navbar">
                 <ul className="nav-content">
                     <li className="nav-link">
-                        <Link className="nav-link" to="/">
-                            <h1 className="nav-logo">G</h1>
+                        <Link className="nav-logo" to="/">
+                            G
                         </Link>
                     </li>                
                 </ul>
