@@ -12,7 +12,10 @@ class Contact extends React.Component{
         super(props);
         this.onSubmit = this.onSubmit.bind(this);
         this.state = {
-            serverResponse: null
+            serverResponse: null,
+            validInput: null,
+            btnClicked: false,
+            isLoading: false
         }
     }
     componentDidMount(){
@@ -25,7 +28,10 @@ class Contact extends React.Component{
 
     onSubmit(e){
         e.preventDefault();
-
+        this.setState({
+            btnClicked: true,
+            isLoading: true
+        })
         var that = this;
 
         var contactInfo = {
@@ -44,7 +50,8 @@ class Contact extends React.Component{
                     that.refs.subject.value = '';
                     that.refs.message.value = '';
                     that.setState({
-                        serverResponse: msg
+                        serverResponse: msg,
+                        isLoading: false
                     })
                 }
 
@@ -56,13 +63,23 @@ class Contact extends React.Component{
           
     
     render(){ 
-        var {serverResponse} = this.state;
+        var {btnClicked, serverResponse, isLoading} = this.state;
 
         function renderBtn(){
-            if(!serverResponse){
+            
+            if(!btnClicked){
                 return <button type="submit" className="form-btn">Send</button>  
-            } else {
+            }
+            
+        }
+        function renderResponse(){
+            if(serverResponse){
                 return <p className="contact-response">{serverResponse}</p>
+            }
+        }
+        function renderLoader(){
+            if(isLoading){
+                return <img className="form-loader" src="../../images/form-loader.svg" />
             }
         }
 
@@ -84,6 +101,8 @@ class Contact extends React.Component{
                                 
                             <div className="container right">
                                 {renderBtn()}
+                                {renderResponse()}
+                                {renderLoader()}
                             </div>
                             
                         </form>
