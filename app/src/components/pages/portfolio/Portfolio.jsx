@@ -6,6 +6,7 @@ import {pageLoaded} from '../../../actions/pageActions';
 import classNames from 'classnames';
 import ProjectDetails from 'ProjectDetails';
 import ProjectLinks from 'ProjectLinks';
+import ProjectCounter from 'ProjectCounter';
 
 class Portfolio extends React.Component{
     constructor(props){
@@ -156,7 +157,7 @@ class Portfolio extends React.Component{
     
     
     render(){
-        var {containerStyle, projectStyle, projects,selectedIndex, selectedProject} = this.state; 
+        var {containerStyle, projectStyle, projects,selectedIndex, selectedProject, originalProjects} = this.state; 
         var that = this;
         
         var projectList = projects.map(function(project, index){
@@ -193,12 +194,12 @@ class Portfolio extends React.Component{
                     </div>
                 </div>
                 <div className="row-4 portfolio-bottom">
-                    <div className="col-3">
-
-                    </div>
-                    
-                    <ProjectDetails selectedProject={selectedProject}/>
-                    <ProjectLinks selectedProject={selectedProject}/>
+                    <ProjectCounter 
+                        selectedIndex={selectedIndex}
+                        originalProjects={originalProjects}
+                        selectedProject={selectedProject}/>
+                    <ProjectDetails selectedProject={selectedProject} />
+                    <ProjectLinks selectedProject={selectedProject} />
                 </div>
             </div>
         );

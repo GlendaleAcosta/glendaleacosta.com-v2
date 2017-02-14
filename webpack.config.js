@@ -34,6 +34,7 @@ module.exports = {
              Portfolio: path.resolve(__dirname, "app/src/components/pages/portfolio/Portfolio.jsx"),
              ProjectDetails: path.resolve(__dirname, "app/src/components/pages/portfolio/ProjectDetails.jsx"),
              ProjectLinks: path.resolve(__dirname, "app/src/components/pages/portfolio/ProjectLinks.jsx"),
+             ProjectCounter: path.resolve(__dirname, "app/src/components/pages/portfolio/ProjectCounter.jsx"),
 
              Contact: path.resolve(__dirname, "app/src/components/pages/Contact.jsx"),
              MapContainer: path.resolve(__dirname, "app/src/components/utilities/MapContainer.jsx"),
