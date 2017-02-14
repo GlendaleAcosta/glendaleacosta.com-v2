@@ -20201,7 +20201,7 @@ var Portfolio = function (_React$Component) {
         } else {
             pageWidth = pageWidth - 60;
             projectWidth = pageWidth / 4;
-            translateX = -(projectWidth * (5 / 2));
+            translateX = projectWidth / 2 - projectWidth * 3;
         }
 
         var containerWidth = projectWidth * projects.length;
@@ -20245,7 +20245,19 @@ var Portfolio = function (_React$Component) {
             projectWidth.splice(length - 2, 2);
             projectWidth = projectWidth.join("");
 
-            var position = projectWidth * (index - 2) + projectWidth / 2;
+            var pageWidth = document.getElementsByTagName('html')["0"].clientWidth;
+            console.log(pageWidth);
+            var quarterWidth;
+            var halfWidth;
+            if (pageWidth < 769) {
+                quarterWidth = projectWidth / 8;
+            } else {
+                halfWidth = projectWidth / 2;
+            }
+            console.log(halfWidth);
+
+            // var position = (projectWidth * (index-2) + (projectWidth/2));
+            var position = quarterWidth - projectWidth * index || halfWidth - projectWidth * (index - 1);
 
             var projects = this.state.projects;
 
@@ -20266,29 +20278,46 @@ var Portfolio = function (_React$Component) {
 
             this.setState({
                 containerStyle: {
-                    transform: "translateX(-" + position + "px)"
+                    transform: "translateX(" + position + "px)"
                 },
                 selectedIndex: index,
                 selectedProject: project
             });
 
             if (index < 4) {
+                var translateX;
+                if (quarterWidth) {
+                    translateX = quarterWidth - projectWidth * (projects_length + index);
+                }
+                if (halfWidth) {
+                    translateX = halfWidth - projectWidth * (projects_length + (index - 1));
+                }
+
+                // translateX = -((projectWidth * ((projects_length + index)-2) + (projectWidth/2)));
+
 
                 setTimeout(function () {
                     that.setState({
                         containerStyle: {
-                            transform: "translateX(-" + (projectWidth * (projects_length + index - 2) + projectWidth / 2) + "px)",
+                            transform: "translateX(" + translateX + "px)",
                             transition: "0s"
                         }
                     });
                 }, 500);
             }
             if (index > projects_length + 3) {
+                var translateX;
+                if (quarterWidth) {
+                    translateX = quarterWidth - projectWidth * (index - projects_length);
+                }
+                if (halfWidth) {
+                    translateX = halfWidth - projectWidth * (index - 1 - projects_length);
+                }
 
                 setTimeout(function () {
                     that.setState({
                         containerStyle: {
-                            transform: "translateX(-" + (projectWidth * (index - projects_length - 2) + projectWidth / 2) + "px)",
+                            transform: "translateX(" + translateX + "px)",
                             transition: "0s"
                         }
                     });
