@@ -7,15 +7,6 @@
 .page-shadow {
     box-shadow: inset 0px 0px 250px 3px black;
 }
-.page-loader{
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    height: 100%;
-    width: 100%;
-    background-color: lightcoral;
-}
 #bgVideo {
     position: absolute;
     top: 50%;
@@ -28,7 +19,43 @@
     transform: translate(-50%, -50%);
     filter: blur(5px);
 }
+.page-loader{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 100%;
+    width: 100%;
+    background-color: $portfolioBg;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.load-text {
+  color: $c1; 
+}
 
+.load-elipses {
+  color: #fff;
+  // transform: scale(3,3);
+  animation: elipses 0.2s ease-in-out inifinte;
+}
+@keyframes elipses {
+  0% { transform: scale(0,0);}
+  50% { transform: scale(2,2);}
+  100% { transform: scale(0,0);}
+}
+
+.load-bar-container {
+  width: 300px;
+  height: 2px;
+  background-color: rgba(255,255,255,0.7);  
+}
+.load-bar {
+  background-color: $c2;
+  transition: 0.5s ease-in-out;
+}
 
 .pageLoader-enter {
   transform: translateX(-100%);
