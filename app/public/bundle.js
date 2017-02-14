@@ -20130,6 +20130,10 @@ var _ProjectCounter = __webpack_require__(276);
 
 var _ProjectCounter2 = _interopRequireDefault(_ProjectCounter);
 
+var _ProjectSlider = __webpack_require__(628);
+
+var _ProjectSlider2 = _interopRequireDefault(_ProjectSlider);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -20146,7 +20150,7 @@ var Portfolio = function (_React$Component) {
 
         var _this = _possibleConstructorReturn(this, (Portfolio.__proto__ || Object.getPrototypeOf(Portfolio)).call(this, props));
 
-        _this.selectItem = _this.selectItem.bind(_this);
+        _this.handleItemSelect = _this.handleItemSelect.bind(_this);
         var originalProjects = [{
             name: 'Angular Movie Watchlist',
             technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
@@ -20190,6 +20194,7 @@ var Portfolio = function (_React$Component) {
         var pageWidth = document.getElementsByTagName('html')["0"].clientWidth;
         var projectWidth;
         var translateX;
+
         if (pageWidth < 769) {
             projectWidth = pageWidth / (5 / 4);
             translateX = projectWidth / 8 - projectWidth * 4;
@@ -20198,9 +20203,9 @@ var Portfolio = function (_React$Component) {
             projectWidth = pageWidth / 4;
             translateX = -(projectWidth * (5 / 2));
         }
-        console.log(pageWidth);
+
         var containerWidth = projectWidth * projects.length;
-        // (projectWidth / 8)
+
         _this.state = {
             originalProjects: originalProjects,
             projects: projects,
@@ -20229,11 +20234,9 @@ var Portfolio = function (_React$Component) {
             }, 1500);
         }
     }, {
-        key: 'selectItem',
-        value: function selectItem(index, project, e) {
-
-            e.preventDefault();
-
+        key: 'handleItemSelect',
+        value: function handleItemSelect(index, project) {
+            console.log(index);
             var that = this;
             var projectWidth = this.state.projectStyle.width;
             var length = projectWidth.length;
@@ -20295,49 +20298,16 @@ var Portfolio = function (_React$Component) {
     }, {
         key: 'render',
         value: function render() {
+            var that = this;
             var _state = this.state,
                 containerStyle = _state.containerStyle,
                 projectStyle = _state.projectStyle,
                 projects = _state.projects,
                 selectedIndex = _state.selectedIndex,
+                fakeIndex = _state.fakeIndex,
                 selectedProject = _state.selectedProject,
                 originalProjects = _state.originalProjects;
 
-            var that = this;
-
-            var projectList = projects.map(function (project, index) {
-
-                if (that.state.selectedIndex === index || index === that.state.fakeIndex) {
-                    var projectClass = (0, _classnames2.default)({
-                        'project': true,
-                        'project-clicked': true
-                    });
-
-                    return _react2.default.createElement(
-                        'div',
-                        { key: index, onClick: that.selectItem.bind(this, index, project), style: projectStyle, className: projectClass },
-                        _react2.default.createElement(
-                            'p',
-                            { className: 'project-title' },
-                            project.name
-                        )
-                    );
-                } else {
-                    var projectClass = (0, _classnames2.default)({
-                        'project': true,
-                        'project-clicked': false
-                    });
-                    return _react2.default.createElement(
-                        'div',
-                        { key: index, onClick: that.selectItem.bind(this, index, project), style: projectStyle, className: projectClass },
-                        _react2.default.createElement(
-                            'p',
-                            { className: 'project-title' },
-                            project.name
-                        )
-                    );
-                }
-            });
 
             return _react2.default.createElement(
                 'div',
@@ -20345,11 +20315,14 @@ var Portfolio = function (_React$Component) {
                 _react2.default.createElement(
                     'div',
                     { className: 'row-8 portfolio-top' },
-                    _react2.default.createElement(
-                        'div',
-                        { style: containerStyle, className: 'project-container' },
-                        projectList
-                    )
+                    _react2.default.createElement(_ProjectSlider2.default, {
+                        projects: projects,
+                        selectedIndex: selectedIndex,
+                        fakeIndex: fakeIndex,
+                        projectStyle: projectStyle,
+                        containerStyle: containerStyle,
+                        onItemSelect: this.handleItemSelect
+                    })
                 ),
                 _react2.default.createElement(
                     'div',
@@ -48206,6 +48179,118 @@ _reactDom2.default.render(_react2.default.createElement(
         )
     )
 ), document.getElementById('app'));
+
+/***/ }),
+/* 628 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _classnames = __webpack_require__(295);
+
+var _classnames2 = _interopRequireDefault(_classnames);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var ProjectList = function (_React$Component) {
+    _inherits(ProjectList, _React$Component);
+
+    function ProjectList(props) {
+        _classCallCheck(this, ProjectList);
+
+        var _this = _possibleConstructorReturn(this, (ProjectList.__proto__ || Object.getPrototypeOf(ProjectList)).call(this, props));
+
+        console.log(props);
+        _this.onBtnClick = _this.onBtnClick.bind(_this);
+        return _this;
+    }
+
+    _createClass(ProjectList, [{
+        key: 'onBtnClick',
+        value: function onBtnClick(index, project, e) {
+            e.preventDefault();
+            this.props.onItemSelect(index, project);
+        }
+    }, {
+        key: 'render',
+        value: function render() {
+            var _props = this.props,
+                containerStyle = _props.containerStyle,
+                projects = _props.projects,
+                selectedIndex = _props.selectedIndex,
+                fakeIndex = _props.fakeIndex,
+                projectStyle = _props.projectStyle;
+
+            var that = this;
+
+            var projectList = projects.map(function (project, index) {
+                console.log("here");
+
+                if (selectedIndex === index || index === fakeIndex) {
+                    var projectClass = (0, _classnames2.default)({ 'project': true, 'project-clicked': true });
+
+                    return _react2.default.createElement(
+                        'div',
+                        {
+                            onClick: that.onBtnClick.bind(this, index, project),
+                            key: index,
+                            style: projectStyle,
+                            className: projectClass
+                        },
+                        _react2.default.createElement(
+                            'p',
+                            { className: 'project-title' },
+                            project.name
+                        )
+                    );
+                } else {
+                    var projectClass = (0, _classnames2.default)({ 'project': true, 'project-clicked': false });
+                    return _react2.default.createElement(
+                        'div',
+                        {
+                            onClick: that.onBtnClick.bind(this, index, project),
+                            key: index,
+                            style: projectStyle,
+                            className: projectClass
+                        },
+                        _react2.default.createElement(
+                            'p',
+                            { className: 'project-title' },
+                            project.name
+                        )
+                    );
+                }
+            });
+
+            return _react2.default.createElement(
+                'div',
+                { style: containerStyle, className: 'project-container' },
+                projectList
+            );
+        }
+    }]);
+
+    return ProjectList;
+}(_react2.default.Component);
+
+exports.default = ProjectList;
 
 /***/ })
 /******/ ]);

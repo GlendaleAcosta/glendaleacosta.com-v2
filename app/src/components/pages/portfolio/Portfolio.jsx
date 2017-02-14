@@ -7,11 +7,12 @@ import classNames from 'classnames';
 import ProjectDetails from 'ProjectDetails';
 import ProjectLinks from 'ProjectLinks';
 import ProjectCounter from 'ProjectCounter';
+import ProjectSlider from 'ProjectSlider';
 
 class Portfolio extends React.Component{
     constructor(props){
         super(props);
-        this.selectItem = this.selectItem.bind(this);
+        this.handleItemSelect = this.handleItemSelect.bind(this);
         var originalProjects = [
                 {
                     name: 'Angular Movie Watchlist',
@@ -61,17 +62,18 @@ class Portfolio extends React.Component{
         var pageWidth = document.getElementsByTagName('html')["0"].clientWidth;
         var projectWidth;
         var translateX;
+
         if(pageWidth < 769){
             projectWidth = pageWidth / (5/4);
-            translateX = ( (projectWidth/8) - (projectWidth * 4));
+            translateX = ((projectWidth/8) - (projectWidth * 4));
         } else {
             pageWidth = pageWidth - 60;
             projectWidth = pageWidth / 4;
             translateX = -(projectWidth * (5/2));
         }
-        console.log(pageWidth);
+       
         var containerWidth = (projectWidth * projects.length);
-        // (projectWidth / 8)
+        
         this.state = {
             originalProjects: originalProjects,
             projects: projects,
@@ -96,10 +98,8 @@ class Portfolio extends React.Component{
         
     }
 
-    selectItem(index, project, e ){
-        
-        e.preventDefault();
-        
+    handleItemSelect(index, project){
+        console.log(index);
         var that = this;
         var projectWidth = this.state.projectStyle.width;
         var length = projectWidth.length;
@@ -166,41 +166,30 @@ class Portfolio extends React.Component{
     
     
     render(){
-        var {containerStyle, projectStyle, projects,selectedIndex, selectedProject, originalProjects} = this.state; 
         var that = this;
+        var {   containerStyle, 
+                projectStyle, 
+                projects ,
+                selectedIndex, 
+                fakeIndex, 
+                selectedProject, 
+                originalProjects } = this.state; 
         
-        var projectList = projects.map(function(project, index){
             
-            if(that.state.selectedIndex === index || index === that.state.fakeIndex){
-                var projectClass = classNames({
-                    'project': true,
-                    'project-clicked': true
-                })
-              
-                return (        
-                    <div key={index} onClick={that.selectItem.bind(this, index, project)} style={projectStyle} className={projectClass}>
-                        <p className="project-title">{project.name}</p>
-                    </div>
-                )
-            } else {
-                var projectClass = classNames({
-                    'project': true,
-                    'project-clicked': false
-                })
-                return (        
-                    <div key={index} onClick={that.selectItem.bind(this, index, project)} style={projectStyle} className={projectClass}>
-                        <p className="project-title">{project.name}</p>
-                    </div>
-                )
-            }
-        })
-        
         return (
             <div className="portfolio-top-container">
                 <div className="row-8 portfolio-top">
-                    <div style={containerStyle} className="project-container">
-                        {projectList}
-                    </div>
+                    
+                        {/*{projectList}*/}
+                        <ProjectSlider 
+                            projects={projects} 
+                            selectedIndex={selectedIndex}
+                            fakeIndex={fakeIndex}
+                            projectStyle={projectStyle}
+                            containerStyle={containerStyle}
+                            onItemSelect={this.handleItemSelect}
+                        />
+                    
                 </div>
                 <div className="row-4 portfolio-bottom">
                     <ProjectCounter 

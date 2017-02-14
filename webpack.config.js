@@ -32,6 +32,7 @@ module.exports = {
              Skills: path.resolve(__dirname, "app/src/components/pages/about/Skills.jsx"),
 
              Portfolio: path.resolve(__dirname, "app/src/components/pages/portfolio/Portfolio.jsx"),
+             ProjectSlider: path.resolve(__dirname, "app/src/components/pages/portfolio/ProjectSlider.jsx"),
              ProjectDetails: path.resolve(__dirname, "app/src/components/pages/portfolio/ProjectDetails.jsx"),
              ProjectLinks: path.resolve(__dirname, "app/src/components/pages/portfolio/ProjectLinks.jsx"),
              ProjectCounter: path.resolve(__dirname, "app/src/components/pages/portfolio/ProjectCounter.jsx"),
