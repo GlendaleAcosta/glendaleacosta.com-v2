@@ -5,6 +5,7 @@ import {fetchPage} from '../../../actions/pageActions';
 import {pageLoaded} from '../../../actions/pageActions';
 import classNames from 'classnames';
 import ProjectDetails from 'ProjectDetails';
+import ProjectLinks from 'ProjectLinks';
 
 class Portfolio extends React.Component{
     constructor(props){
@@ -14,27 +15,38 @@ class Portfolio extends React.Component{
                 {
                     name: 'Angular Movie Watchlist',
                     technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
-                    details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.'
+                    details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.',
+                    github: 'https://github.com/GlendaleAcosta/angular-movie-watchlist',
+                    website: 'https://gentle-crag-19149.herokuapp.com/'
                 },
                 {
                     name: 'Vending Machine App',
                     technologies: ['Angularjs', 'PHP', 'MYSQL'],
-                    details: "A small app. You can select and buy drinks. There's also a save functionality to keep the history if purchased items."
+                    details: "A small app. You can select and buy drinks. There's also a save functionality to keep the history if purchased items.",
+                    github: 'https://github.com/GlendaleAcosta/Vending-Machine-App',
+                    website: 'https://infinite-fjord-58963.herokuapp.com/'
+
                 },
                 {
                     name: 'Pokémon Iphone App',
                     technologies: ['Swift', 'REST Pokéapi'],
-                    details: 'Utilizes REST and API from the popular game, pokemon. It contains a search functionality, displays all pokemon , and utilizes dynamic pages showing details for each individual pokemon.'
+                    details: 'Utilizes REST and API from the popular game, pokemon. It contains a search functionality, displays all pokemon , and utilizes dynamic pages showing details for each individual pokemon.',
+                    github: 'https://github.com/GlendaleAcosta/Pokedex',
+                    website: null
                 },
                 {
                     name: 'A & K Roofing',
                     technologies: ['Wordpress', 'HTML' ,'CSS', ],
-                    details: 'A real commercial website to demonstrate abilities with wordpress and simple UI.'
+                    details: 'A real commercial website to demonstrate abilities with wordpress and simple UI.',
+                    github: null,
+                    website: 'http://www.ankroofing.com/'
                 },
                 {
                     name: 'glendaleacosta.com-v1',
                     technologies: ['HTML', 'Post-CSS', 'JavaScript', 'Gulp'],
-                    details: 'My first real website. It contained fancy frontend tricks like parallax. It heavily relied on gulp to minify files and utilize post-css.'
+                    details: 'My first real website. It contained fancy frontend tricks like parallax. It heavily relied on gulp to minify files and utilize post-css.',
+                    github: 'https://github.com/GlendaleAcosta/glendaleacosta.com-v2',
+                    website: 'http://www.glendaleacosta.com/'
                 },
             ];
 
@@ -144,7 +156,7 @@ class Portfolio extends React.Component{
     
     
     render(){
-        var {containerStyle, projectStyle, projects,selectedIndex} = this.state; 
+        var {containerStyle, projectStyle, projects,selectedIndex, selectedProject} = this.state; 
         var that = this;
         
         var projectList = projects.map(function(project, index){
@@ -185,8 +197,8 @@ class Portfolio extends React.Component{
 
                     </div>
                     
-                    <ProjectDetails selectedProject={this.state.selectedProject}/>
-                    
+                    <ProjectDetails selectedProject={selectedProject}/>
+                    <ProjectLinks selectedProject={selectedProject}/>
                 </div>
             </div>
         );

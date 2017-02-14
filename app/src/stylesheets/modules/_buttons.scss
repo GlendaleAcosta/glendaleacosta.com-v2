@@ -59,3 +59,33 @@
         color: $c1;
     }
 }
+
+.github-btn {
+    margin-bottom: 10px;
+    background-color: $c2;
+    width: 150px;
+    text-align: center;
+    padding: 10px 15px;
+    color: #fff;
+    text-decoration: none;
+    letter-spacing: 0.7px;
+    font-family: 'Lato', sans-serif;
+}
+
+.web-btn {
+    background-color: $c1;
+    width: 150px;
+    text-align: center;
+    padding: 10px 15px;
+    color : #fff;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 0.7px;
+}
+
+.links {
+    margin-top: 55px;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+}

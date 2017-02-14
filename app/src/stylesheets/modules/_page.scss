@@ -47,7 +47,7 @@
   60% {color: $c2;}
   85% {transform: scale(1,1);}
   90% {transform: scale(0.6,0.6);}
-  95% {transform: scale(1.2,1.2);}
+  95% {transform: scale(1.2,1.2); color: $c1;}
   100% {color: $c1; transform: scale(1,1);}
 }
 
@@ -58,7 +58,7 @@
 }
 .load-bar {
   background-color: $c2;
-  transition: 0.5s ease-in-out;
+  transition: 0.5s ease-in;
 }
 
 .pageLoader-enter {
