@@ -15,9 +15,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgba(15, 12, 5, 0.61);
+    background-color: rgba(40, 83, 105, 0.36);
     flex-direction: column;
-
+    
     @include phone {
         h1 { font-size: 36px;}
         p { font-size: 26px; text-align: center;}
