@@ -20,18 +20,23 @@
     padding: 0 20px;
     font-size: 16px;
     background-color: #f1ebd2;
-    border: 0; 
-    color: #fff;
+    border: 2px solid #f1ebd2;
+    color: $c2;
     outline: none;
+    transition: 0.15s ease-in-out;
     &::-webkit-input-placeholder{
         color: $c2;
     }
     @include phone {
         width: 100%;
     }
+
+    &:focus {
+        border: 2px solid $c1;
+    }
 }
 .textarea {
-    color:#fff;
+    color: $c2;
     border: 0;
     margin: 5px;
     min-height: 150px;
@@ -40,11 +45,17 @@
     background-color: #f1ebd2;
     resize: none;
     outline: none;
+    border: 2px solid #f1ebd2;
+    transition: 0.15s ease-in-out;
     &::-webkit-input-placeholder{
         color: $c2;
     }
     @include phone {
         width: 100%;
+    }
+
+    &:focus{
+        border: 2px solid $c1;
     }
 }
 
