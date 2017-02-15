@@ -69,11 +69,12 @@
 // }
 
 .rectangle {
-    width: 130%;
+    width: 1000%;
     height: 80%;
     position: absolute;
     bottom: 50%;
     background-color: #285369;
-    transform: rotate(-5deg);
+    transform: translate(-50%) rotate(-5deg);
     z-index: 9;
+    
 }

@@ -33,6 +33,11 @@ class Home extends React.Component {
     }
 
     render(){
+        
+        var vidSrc;
+        if(document.getElementsByTagName('html')["0"].clientWidth > 768){
+            vidSrc = '../../videos/AxiomMeeting.mp4';
+        }
         return (
             <div className="hero page-shadow"> 
                 <h1 className="lg-txt-1 white">GLENDALE ACOSTA</h1>
@@ -42,8 +47,8 @@ class Home extends React.Component {
                 <button onClick={()=> this.changePage('/portfolio')} className="arrow-btn mgn-2" to="/portfolio">View Portfolio <img src="../../images/btn_right-arrow.svg"/></button>
 
                 <Video id="bgVideo" autoPlay loop muted
-                    poster="http://sourceposter.jpg">
-                <source src="../../videos/Maxine the Fluffy Corgi.mp4" type="video/mp4" />
+                    poster="../../images/laptopbg.jpeg">
+                <source src={vidSrc} type="video/mp4" />
                 </Video>
             </div>
         );

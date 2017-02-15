@@ -9,7 +9,7 @@
     }
 }
 .page-shadow {
-    box-shadow: inset 0px 0px 250px 3px black;
+    box-shadow: inset 0px 0px 100px 1px rgba(20,20,20,0.9);
 }
 #bgVideo {
     position: absolute;
@@ -21,7 +21,7 @@
     height: auto;
     z-index: -100;
     transform: translate(-50%, -50%);
-    filter: blur(5px);
+    filter: blur(1px);
 }
 .page-loader{
     position: fixed;
