@@ -66,6 +66,7 @@
 .github-btn {
     margin-bottom: 10px;
     background-color: $c2;
+    // border: 2px solid $c2;
     width: 150px;
     text-align: center;
     padding: 10px 15px;
@@ -73,8 +74,13 @@
     text-decoration: none;
     letter-spacing: 0.7px;
     font-family: 'Lato', sans-serif;
+    transition: 0.125s ease-in-out;
     @include phone {
         margin-bottom: 0;
+    }
+    &:hover {
+        background-color: $c3;
+        color: $c2;
     }
 }
 
@@ -87,6 +93,11 @@
     text-decoration: none;
     font-family: 'Lato', sans-serif;
     letter-spacing: 0.7px;
+    transition: 0.125s ease-in-out;
+    &:hover {
+        background-color: $c3;
+        color: $c1;
+    }
 }
 
 .links {
