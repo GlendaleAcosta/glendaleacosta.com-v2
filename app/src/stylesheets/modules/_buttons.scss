@@ -9,6 +9,8 @@
     font-size: 23px;
     transition: 0.125s ease-in-out;
     display: flex;
+    cursor: pointer;
+    outline: none;
     &:hover {
         // background-color: rgba(154,45,54,0);
         border-color: $c1;

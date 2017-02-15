@@ -6,12 +6,11 @@ import {connect} from 'react-redux';
 import {fetchPage} from '../../actions/pageActions';
 import {pageLoaded} from '../../actions/pageActions';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import {browserHistory} from 'react-router';
 
 class Home extends React.Component {
     constructor(props){
-        super(props);
-        console.log("loaded Home component");
-
+        super(props); 
     }
 
     componentDidMount(){
@@ -21,6 +20,17 @@ class Home extends React.Component {
         }, 1500);
         
     }
+    changePage(link){
+        event.preventDefault();
+        var location = browserHistory.getCurrentLocation();
+
+        if (location.pathname !== link){
+            this.props.fetchPage(); 
+            setTimeout(()=>{
+                browserHistory.push(link);
+            },500)
+        }
+    }
 
     render(){
         return (
@@ -29,7 +39,7 @@ class Home extends React.Component {
 
                 <hr className="divider"/>
                 <p className="lg-txt-4 mgn-1 white-ish">A normal college student by day, and a vigilante hacker by night</p>
-                <Link className="arrow-btn mgn-2" to="/portfolio">View Portfolio <img src="../../images/btn_right-arrow.svg"/></Link>
+                <button onClick={()=> this.changePage('/portfolio')} className="arrow-btn mgn-2" to="/portfolio">View Portfolio <img src="../../images/btn_right-arrow.svg"/></button>
 
                 <Video id="bgVideo" autoPlay loop muted
                     poster="http://sourceposter.jpg">
