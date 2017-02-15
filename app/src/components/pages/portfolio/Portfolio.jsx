@@ -19,36 +19,40 @@ class Portfolio extends React.Component{
                     technologies: ['Angularjs', 'Node', 'PostgresQL', 'TMDB REST API', 'JWT'],
                     details: 'A fun movie app. Involves login, sign-up, authentication, dynamic routing, route protection, password encryption, and more. You can also save your favorite movies and add movies to your own watchlist for later.',
                     github: 'https://github.com/GlendaleAcosta/angular-movie-watchlist',
-                    website: 'https://gentle-crag-19149.herokuapp.com/'
+                    website: 'https://gentle-crag-19149.herokuapp.com/',
+                    image: '../../../images/Movie-Watchlist.png'
                 },
                 {
                     name: 'Vending Machine App',
                     technologies: ['Angularjs', 'PHP', 'MYSQL'],
                     details: "A small app. You can select and buy drinks. There's also a save functionality to keep the history if purchased items.",
                     github: 'https://github.com/GlendaleAcosta/Vending-Machine-App',
-                    website: 'https://infinite-fjord-58963.herokuapp.com/'
-
+                    website: 'https://infinite-fjord-58963.herokuapp.com/',
+                    image: '../../../images/Vending Machine App.png'
                 },
                 {
                     name: 'Pokémon Iphone App',
                     technologies: ['Swift', 'REST Pokéapi'],
                     details: 'Utilizes REST and API from the popular game, pokemon. It contains a search functionality, displays all pokemon , and utilizes dynamic pages showing details for each individual pokemon.',
                     github: 'https://github.com/GlendaleAcosta/Pokedex',
-                    website: null
+                    website: null,
+                    image: '../../../images/Pokedex App.png'
                 },
                 {
                     name: 'A & K Roofing',
-                    technologies: ['Wordpress', 'HTML' ,'CSS', ],
+                    technologies: ['Wordpress', 'HTML' ,'CSS', 'JavaScript'],
                     details: 'A real commercial website to demonstrate abilities with wordpress and simple UI.',
                     github: null,
-                    website: 'http://www.ankroofing.com/'
+                    website: 'http://www.ankroofing.com/',
+                    image: '../../../images/A&K Roofing.png'
                 },
                 {
                     name: 'glendaleacosta.com-v1',
                     technologies: ['HTML', 'Post-CSS', 'JavaScript', 'Gulp'],
                     details: 'My first real website. It contained fancy frontend tricks like parallax. It heavily relied on gulp to minify files and utilize post-css.',
                     github: 'https://github.com/GlendaleAcosta/glendaleacosta.com-v2',
-                    website: 'http://www.glendaleacosta.com/'
+                    website: 'http://www.glendaleacosta.com/',
+                    image: '../../../images/First Website.png'
                 },
             ];
 

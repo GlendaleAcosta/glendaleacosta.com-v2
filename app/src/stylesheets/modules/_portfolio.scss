@@ -9,15 +9,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 30px solid #285369;
+    // border: 30px solid #285369;
+    border: 25px solid $c3;
     // margin: 30px;
     cursor: pointer;
     position: relative;
+    background-size: cover;
+    background-position: center;
     &:hover {
         opacity: 1;
     }   
     @include phone {
-        border: 15px solid #285369;
+        // border: 15px solid #285369;
+        border: 15px solid $c3;
     }
 }
 
@@ -38,7 +42,8 @@
     // left: -10%;
     top: 0;
     transition: 0.5s ease-in-out;
-    background-color: #285369;
+    // background-color: #285369;
+    background-color: $c3;
 }
 
 .portfolio-top {
