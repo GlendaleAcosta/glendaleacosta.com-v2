@@ -15,6 +15,14 @@ app.use(express.static('app/public'));
 
 
 // Routes
+app.all('/.*/', function(req, res, next){
+    var host = req.get('host');
+    if (host.match(/^www\..*/i)) {
+        next();
+  } else {
+    res.redirect(301, "http://www." + host);
+  }
+})
 app.get('/resume', function(req,res,next){
     res.download(path.join(__dirname, 'Glendale-Acosta-Resume.pdf'), 'Glendale-Acosta-Resume.pdf', function(err){
         if(err){
