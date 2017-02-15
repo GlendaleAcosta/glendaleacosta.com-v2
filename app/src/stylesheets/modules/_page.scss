@@ -24,10 +24,10 @@
     filter: blur(1px);
 }
 .page-loader{
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 9999;
+    z-index: 9998;
     height: 100%;
     width: 100%;
     background-color: $portfolioBg;
@@ -36,6 +36,9 @@
     justify-content: center;
     align-items: center;
     box-shadow: 3px 3px 40px 3px rgba(0,0,0,0.5);
+    @include phone {
+      position: fixed;
+    }
 }
 .load-text {
   color: $c1; 
