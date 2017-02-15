@@ -4,8 +4,15 @@ import Resume from 'Resume';
 export default class Skills extends React.Component{
     constructor(props){
         super(props);
-        var height = document.getElementsByTagName('body')["0"].clientWidth - 60;
-        height = height / 4;
+        var pageWidth = document.getElementsByTagName('html')["0"].clientWidth - 60;
+        var height;
+        
+        if(pageWidth < 769){
+            height = 300;
+        } else {
+            height = pageWidth / 4;
+        }
+        
         this.state ={
             style: {
                 height: height + "px",

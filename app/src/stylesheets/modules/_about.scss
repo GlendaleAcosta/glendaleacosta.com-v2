@@ -34,7 +34,7 @@
     align-items: center;
     position: relative;
     z-index: 10;
-    @include phone {padding-top: 60px;}
+    @include phone {padding-top: 80px;}
 }
 .me {
     width: 50%;
@@ -43,6 +43,7 @@
     background-size: cover;
     border: 20px solid $portfolioBg;
     position: relative;
+    @include phone {width: 300px;}
 }
 
 .me-title {
@@ -74,7 +75,7 @@
     position: absolute;
     bottom: 50%;
     background-color: #285369;
-    transform: translate(-50%) rotate(-5deg);
+    transform: rotate(-2deg);
     z-index: 9;
-    
+    @include phone {transform: none}
 }
