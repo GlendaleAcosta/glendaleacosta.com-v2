@@ -20231,6 +20231,13 @@ var Portfolio = function (_React$Component) {
             website: 'https://gentle-crag-19149.herokuapp.com/',
             image: '../../../images/Movie-Watchlist.png'
         }, {
+            name: 'vids-with-frens',
+            technologies: ['React', 'Redux', 'Socket.io', 'MongoDB'],
+            details: "An app that syncs you and your friends' videos. It utilizes dynamic routing, dynamic websockets, a chat system, video search, and synced video player.",
+            github: 'https://github.com/GlendaleAcosta/vids-with-frens',
+            website: 'https://vidswithfrens.herokuapp.com/room/BJ9qfOite',
+            image: '../../../images/Vids-With-Frens2.png'
+        }, {
             name: 'Vending Machine App',
             technologies: ['Angularjs', 'PHP', 'MYSQL'],
             details: "A small app. You can select and buy drinks. There's also a save functionality to keep the history if purchased items.",
@@ -20251,13 +20258,6 @@ var Portfolio = function (_React$Component) {
             github: null,
             website: 'http://www.ankroofing.com/',
             image: '../../../images/A&K Roofing.png'
-        }, {
-            name: 'glendaleacosta.com-v1',
-            technologies: ['HTML', 'Post-CSS', 'JavaScript', 'Gulp'],
-            details: 'My first real website. It contained fancy frontend tricks like parallax. It heavily relied on gulp to minify files and utilize post-css.',
-            github: 'https://github.com/GlendaleAcosta/glendaleacosta.com-v2',
-            website: 'http://www.glendaleacosta.com/',
-            image: '../../../images/First Website.png'
         }];
 
         var length = originalProjects.length;
