@@ -27,7 +27,7 @@ class Portfolio extends React.Component{
                     technologies: ['React', 'Redux', 'Socket.io', 'MongoDB'],
                     details: "An app that syncs you and your friends' videos. It utilizes dynamic routing, dynamic websockets, a chat system, video search, and synced video player.",
                     github: 'https://github.com/GlendaleAcosta/vids-with-frens',
-                    website: 'https://vidswithfrens.herokuapp.com/room/BJ9qfOite',
+                    website: 'https://vidswithfrens.herokuapp.com/',
                     image: '../../../images/Vids-With-Frens2.png'
                 },
                 {
