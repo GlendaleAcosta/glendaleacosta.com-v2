@@ -37,7 +37,9 @@ app.post('/contact', function(req, res, next){
     var contactInfo = req.body.contactInfo;
     
     let transporter = nodemailer.createTransport({
-        service: 'hotmail',
+        service: 'hotmail.com',
+        port: 587,
+        secure: false,
         auth: {
             user: 'silentpony@hotmail.com',
             pass: '123qweASDF'
